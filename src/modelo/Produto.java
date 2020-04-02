@@ -1,0 +1,52 @@
+package modelo;
+
+public class Produto {
+
+	
+	private int cod;
+	private String nome_produto;
+	private int quant_estoq;
+	private String  descricao;
+	
+	public Produto(int cod, String nome_produto, int quant_estoq, String descricao) {
+		
+       this.cod = cod;
+       this.nome_produto = nome_produto;
+       this.quant_estoq = quant_estoq;
+       this.descricao = descricao;
+	
+	}
+
+	public int getCod() {
+		return cod;
+	}
+
+	public void setCod(int cod) {
+		this.cod = cod;
+	}
+
+	public String getNome_produto() {
+		return nome_produto;
+	}
+
+	public void setNome_produto(String nome_produto) {
+		this.nome_produto = nome_produto;
+	}
+
+	public int getQuant_estoq() {
+		return quant_estoq;
+	}
+
+	public void setQuant_estoq(int quant_estoq) {
+		this.quant_estoq = quant_estoq;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+}
