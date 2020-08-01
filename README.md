@@ -12,5 +12,5 @@ desenvolvimento de um sistema de informação, contendo aplicações Java para c
 atualizar, deletar, listar e consultar (via query language) objetos (complexos) num banco de
 dados orientado a objetos (Db4o).
 
-
+OBS:. Projeto em fase de construção 🚧🚨🔥
 
