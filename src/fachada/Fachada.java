@@ -4,13 +4,11 @@ package fachada;
 import java.util.List;
 
 import dao.DAO;
-import dao.DAOFuncionario;
 import dao.DAOCliente;
+import dao.DAOFuncionario;
 import dao.DAOProduto;
-//import dao.DAOItem;
+import modelo.Cliente;
 import modelo.Funcionario;
-import modelo.Cliente;
-import modelo.Cliente;
 import modelo.Item;
 
 public class Fachada {
@@ -37,7 +35,7 @@ public class Fachada {
 			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
 		}
 
-		Cliente cl1 = new Cliente(nome, cpf, endereco, email, telefone);
+		Cliente cl1 = new Cliente("Maria", "1232646", "ruaendereco", "maria@gmail", "12312231");
 		((DAO<Cliente>) daocliente).create(cl1);	
 		DAO.commit();
 		return cl1;
@@ -61,7 +59,8 @@ public class Fachada {
 			throw new Exception("cadastrar funcionario - pessoa ja cadastrado:" + nome);
 		}
 
-		cl = new Cliente(nome, cpf, endereco, email, telefone);
+		
+		cl = new Cliente("helena", "123", "rua tal", "helena@gmail.com","4561233");
 		daocliente.create(cl);	
 		DAO.commit();
 		return (Funcionario(cl));
@@ -91,4 +90,9 @@ private static Funcionario Funcionario(Cliente cl) {
 		}
 		return texto;
 	}
+	public static void excluirCliente(String string, String string2) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	}
