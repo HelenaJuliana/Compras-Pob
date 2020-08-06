@@ -1,7 +1,8 @@
 package modelo;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Venda {
@@ -13,9 +14,9 @@ public class Venda {
 	private float valor;
 	private String venda;
 
-	Funcionario funcionario = new Funcionario("Angela", "angela@gmail");
-	Cliente cliente = new Cliente("Pedro","123.456.789-78","Rua do if","emailqualquer@gmail.com","123456789");
-	Item itens2 = new Item(1 ,"Vestido", 1, 50.0);
+	Funcionario funcionario = new Funcionario("marcia", "marcia@gmail");
+	Cliente cliente = new Cliente("Pedro","123.456.789-78","Rua blabla","pedro@gmail.com","124644");
+    Item itens2 = new Item(1 ,"Vestido", 1, 50.0);
 
 	List<Item> itens = new ArrayList<Item>();
 	

@@ -6,7 +6,9 @@ package aplicacao_console.copy;
  *
  */
 
+import aplicacao_console.copy.Listar;
 import fachada.Fachada;
+
 
 
 public class Listar {
@@ -16,6 +18,8 @@ public class Listar {
 		try {
 			System.out.println(Fachada.listarCliente());
 			System.out.println(Fachada.listarFuncionario());
+//			System.out.println(Fachada.listarItem());
+//			System.out.println(Fachada.listarProduto());
 //			System.out.println(Fachada.listarTelefones());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -29,5 +33,7 @@ public class Listar {
 	public static void main(String[] args) {
 		new Listar();
 	}
+	
+
 }
 

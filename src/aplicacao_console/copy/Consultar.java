@@ -15,7 +15,7 @@ public class Consultar {
 		Fachada.inicializar();
 		try {
 			System.out.println(Fachada.consultarClientePorParteNome("jo") );
-			System.out.println(Fachada.consultarClienteNTelefones(2) );
+			//System.out.println(Fachada.consultarClienteNTelefones(2) );
 //			System.out.println(Fachada.consultarClientePorNumero("88889999") );
 //			System.out.println(Fachada.consultarTelefonesPorNome("joana") );
 //			System.out.println(Fachada.consultarTelefonesPorPrefixo("87") );

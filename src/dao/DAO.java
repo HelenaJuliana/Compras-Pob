@@ -29,8 +29,8 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		}
 	}
 	public static void abrirBancoLocal(){		
-		//Backup.criar("banco.db4o");		//criar uma copia do banco
-		//new File("banco.db4o").delete();  //apagar o banco
+	     //Backup.criar("banco.db4o");		//criar uma copia do banco
+		 //new File("banco.db4o").delete();  //apagar o banco
 		EmbeddedConfiguration config =  Db4oEmbedded.newConfiguration(); 
 		config.common().messageLevel(0);  // 0,1,2,3...
 		

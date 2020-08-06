@@ -68,15 +68,15 @@ public class TelaConsulta extends JFrame {
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		contentPane.add(scroll);
-		
-		btnPessoasComN = new JButton("Pessoas com N telefones");
-		btnPessoasComN.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int n = Integer.parseInt( JOptionPane.showInputDialog("quantos telefones?") );
-				textArea.setText(Fachada.consultarClienteNTelefones(n));
-
-			}
-		});
+//		
+//		btnPessoasComN = new JButton("Pessoas com N telefones");
+//		btnPessoasComN.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				int n = Integer.parseInt( JOptionPane.showInputDialog("quantos telefones?") );
+//				textArea.setText(Fachada.consultarClienteNTelefones(n));
+//
+//			}
+//		});
 		btnPessoasComN.setBounds(429, 47, 210, 23);
 		contentPane.add(btnPessoasComN);
 		

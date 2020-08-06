@@ -17,27 +17,28 @@ public class Cadastrar {
 		try {
 			Fachada.inicializar();
 			Cliente cl;
+			
 //			Telefone t;
 			System.out.println("cadastrando...");
-			cl=Fachada.cadastrarCliente("joao",null, null, null, null);
+			cl=Fachada.cadastrarCliente("joao", "1232646", "ruaendereco", "joao@gmail", "12312231");
 //			t=Fachada.adicionarTelefonePessoa("joao","88880000");
 //			t=Fachada.adicionarTelefonePessoa("joao","88881111");	
 			System.out.println(cl);
 			
-			cl=Fachada.cadastrarCliente("maria", null, null, null, null);
+			cl=Fachada.cadastrarCliente("Maria", "1232646", "ruaendereco", "maria@gmail", "12312231");
 //			t=Fachada.adicionarTelefonePessoa("maria","87882222");
 //			t=Fachada.adicionarTelefonePessoa("maria","88883333");
 			System.out.println(cl);
 
-			cl=Fachada.cadastrarCliente("jose", null, null, null, null);
+			//cl=Fachada.cadastrarCliente("jose", "null", "null", "null", "null");
 //			t=Fachada.adicionarTelefonePessoa("jose","87884444");
-			System.out.println(cl);
+			//System.out.println(cl);
 
 //			p=Fachada.cadastrarAluno("paulo", 9);
-			System.out.println(cl);
+			//System.out.println(cl);
 
 //			p=Fachada.cadastrarProfessor("fausto", 1000.0);
-			System.out.println(cl);
+			//System.out.println(cl);
 
 		} catch (Exception e) 	{
 			System.out.println(e.getMessage());
@@ -50,9 +51,10 @@ public class Cadastrar {
 	}
 
 
-//	public void cadastrar(){
-//
-//	}	
+	public void cadastrar(){
+	
+
+	}	
 
 
 	//=================================================

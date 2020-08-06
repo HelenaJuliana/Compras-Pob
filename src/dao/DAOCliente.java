@@ -17,6 +17,9 @@ import modelo.Funcionario;
 
 public class DAOCliente  extends DAO<Cliente>{
 
+	private List<Cliente> resultados;
+
+
 	//nome é campo unico 
 	public Cliente read (Object chave) {
 		String cpf = (String) chave;	//casting para o tipo da chave
@@ -75,20 +78,21 @@ public class DAOCliente  extends DAO<Cliente>{
 
 	public List<Cliente> consultarCliente(String caracteres) {
 		// TODO Auto-generated method stub
-		return null;
+		return resultados;
 	}
 	
 }
 
 
 ///*-------------------------------------------------*/
-//@SuppressWarnings("serial")
-//class Filtro  implements Evaluation {
-//	private int n;
-//	public Filtro (int n) {this.n=n;}
-//	public Filtro(int n2) {
-//		// TODO Auto-generated constructor stub
-//	}
+@SuppressWarnings("serial")
+class Filtro  implements Evaluation {
+	private int n;
+	public Filtro (int n) {this.n=n;}
+	public void evaluate(Candidate candidate) {
+		Cliente cl = (Cliente) candidate.getObject();
+		//candidate.include( cl.getCpf.().size()==n);
+	}
 //	public Filtro(int n2) {
 //		// TODO Auto-generated constructor stub
 //	}
@@ -98,6 +102,6 @@ public class DAOCliente  extends DAO<Cliente>{
 //	}
 //	private boolean compara(Cliente cl, int n) {
 //		return cl.getTelefones().size()==n;
-//	}
+	}
 
 

@@ -6,16 +6,20 @@ package aplicacao_console.copy;
  *
  */
 
+
 import fachada.Fachada;
+import modelo.Cliente;
 
 
 public class Atualizar {
 
 	public Atualizar(){
 		Fachada.inicializar();
+		Cliente Cl;
 		try {
 			System.out.println("alterando...");
-			Fachada.cadastrarCliente("joao", "joana","","","");
+			Cl = Fachada.cadastrarCliente("joao", "ruatal","222222","lll","hksahfk");
+		
 //			Fachada.excluirTelefonePessoa("joana", "88881111");
 //			Fachada.alterarTelefone("88880000", "88889999");
 		} 
@@ -37,10 +41,11 @@ public class Atualizar {
 //			System.out.println(e.getMessage());}
 //
 		Fachada.finalizar();
+		
 		System.out.println("fim do programa");
 	}
 
-
+	
 
 
 	//=================================================

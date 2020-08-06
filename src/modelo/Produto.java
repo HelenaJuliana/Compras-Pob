@@ -8,7 +8,11 @@ public class Produto {
 	private int quant_estoq;
 	private String  descricao;
 	
-	public Produto(int cod, String nome_produto, int quant_estoq, String descricao) {
+	public Produto(
+			int cod, 
+			String nome_produto, 
+			int quant_estoq, 
+			String descricao) {
 		
        this.cod = cod;
        this.nome_produto = nome_produto;
@@ -17,11 +21,15 @@ public class Produto {
 	
 	}
 
+	public Produto(Object nomeProd) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCod() {
 		return cod;
 	}
 
-	public void setCod(int cod) {
+	public void setCod(Cliente cliente) {
 		this.cod = cod;
 	}
 
@@ -47,6 +55,11 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public void adicionar(Item i) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
