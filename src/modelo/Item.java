@@ -8,7 +8,7 @@ public class Item {
 	private int quant;
 	private Produto valor;
 	
-	//contrutor de Itens,não estou conseguindo identificar na fachada
+	//contrutor de Itens
 	public Item ( int cod ,Produto pe, int quant,Produto pro) {
 		this.setCod(cod);
 		this.setNome_produto(pe);
@@ -17,6 +17,7 @@ public class Item {
 		
 		
 	}
+	
 //construtor do modelo venda no novo objeto em itens 
 	public Item(int cod2, String string, int quant2, double d) {
 		this.setCod(cod);

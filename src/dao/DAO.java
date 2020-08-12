@@ -18,22 +18,22 @@ import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Item;
 
-
 public abstract class DAO<T> implements DAOInterface<T> {
 	protected static ObjectContainer manager;
 
-	public static void open(){	
-		if(manager==null){		
+	public static void open() {
+		if (manager == null) {
 			abrirBancoLocal();
-			//abrirBancoServidor();
+			// abrirBancoServidor();
 		}
 	}
-	public static void abrirBancoLocal(){		
-	     //Backup.criar("banco.db4o");		//criar uma copia do banco
-		 //new File("banco.db4o").delete();  //apagar o banco
-		EmbeddedConfiguration config =  Db4oEmbedded.newConfiguration(); 
-		config.common().messageLevel(0);  // 0,1,2,3...
-		
+
+	public static void abrirBancoLocal() {
+		// Backup.criar("banco.db4o"); //criar uma copia do banco
+		// new File("banco.db4o").delete(); //apagar o banco
+		EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
+		config.common().messageLevel(0); // 0,1,2,3...
+
 		config.common().objectClass(Cliente.class).cascadeOnUpdate(true);
 		config.common().objectClass(Cliente.class).cascadeOnDelete(true);
 		config.common().objectClass(Cliente.class).cascadeOnActivate(true);
@@ -44,17 +44,17 @@ public abstract class DAO<T> implements DAOInterface<T> {
 //		config.common().objectClass(Telefone.class).cascadeOnDelete(true);
 		config.common().objectClass(Item.class).cascadeOnActivate(true);
 
-		// 		indices
+		// indices
 		config.common().objectClass(modelo.Cliente.class).objectField("nome").indexed(true);
 		config.common().objectClass(Item.class).objectField("itens").indexed(true);
-		
-		manager = 	Db4oEmbedded.openFile(config, "banco.db4o");
+
+		manager = Db4oEmbedded.openFile(config, "banco.db4o");
 	}
 
-	public static void abrirBancoServidor(){
-		ClientServerConfiguration config = (ClientServerConfiguration) Db4oClientServer.newClientConfiguration( ) ;
-		((CommonConfigurationProvider) config).common().messageLevel(0);   //0,1,2,3,4
-		
+	public static void abrirBancoServidor() {
+		ClientServerConfiguration config = (ClientServerConfiguration) Db4oClientServer.newClientConfiguration();
+		((CommonConfigurationProvider) config).common().messageLevel(0); // 0,1,2,3,4
+
 		((CommonConfigurationProvider) config).common().objectClass(Cliente.class).cascadeOnUpdate(true);
 		((CommonConfigurationProvider) config).common().objectClass(Cliente.class).cascadeOnDelete(true);
 		((CommonConfigurationProvider) config).common().objectClass(Cliente.class).cascadeOnActivate(true);
@@ -62,33 +62,34 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		((CommonConfigurationProvider) config).common().objectClass(Funcionario.class).cascadeOnDelete(true);
 		((CommonConfigurationProvider) config).common().objectClass(Funcionario.class).cascadeOnActivate(true);
 		((CommonConfigurationProvider) config).common().objectClass(Item.class).cascadeOnUpdate(true);
-		//config.common().objectClass(Telefone.class).cascadeOnDelete(true);
+		// config.common().objectClass(Telefone.class).cascadeOnDelete(true);
 		((CommonConfigurationProvider) config).common().objectClass(Item.class).cascadeOnActivate(true);
 
-		// 		indices
+		// indices
 		((CommonConfigurationProvider) config).common().objectClass(Cliente.class).objectField("nome").indexed(true);
 		((CommonConfigurationProvider) config).common().objectClass(Item.class).objectField("Itens").indexed(true);
 
-		manager = Db4oClientServer.openClient((ClientConfiguration) config,"10.0.51.119",34000,"usuario1","senha1");	
-		//manager = Db4oClientServer.openClient(config,"localhost",34000,"usuario1","senha1");
+		manager = Db4oClientServer.openClient((ClientConfiguration) config, "10.0.51.119", 34000, "usuario1", "senha1");
+		// manager =
+		// Db4oClientServer.openClient(config,"localhost",34000,"usuario1","senha1");
 	}
 
-	public static void close(){
-		if(manager!=null) {
+	public static void close() {
+		if (manager != null) {
 			manager.close();
-			manager=null;
+			manager = null;
 		}
 	}
 
-	//----------CRUD-----------------------
+	// ----------CRUD-----------------------
 
-	public void create(T obj){
-		manager.store( obj );
+	public void create(T obj) {
+		manager.store(obj);
 	}
 
 	public abstract T read(Object chave);
 
-	public T update(T obj){
+	public T update(T obj) {
 		manager.store(obj);
 		return obj;
 	}
@@ -97,31 +98,29 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		manager.delete(obj);
 	}
 
-	public void refresh(T obj){
+	public void refresh(T obj) {
 		manager.ext().refresh(obj, Integer.MAX_VALUE);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> readAll(){
-		Class<T> type = (Class<T>) ((ParameterizedType) this.getClass()
-				.getGenericSuperclass()).getActualTypeArguments()[0];
+	public List<T> readAll() {
+		Class<T> type = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass())
+				.getActualTypeArguments()[0];
 		com.db4o.query.Query q = manager.query();
 		q.constrain(type);
 		return (List<T>) q.execute();
 	}
 
-	//--------transação---------------
-	public static void begin(){	
-	}		// tem que ser vazio
+	// --------transação---------------
+	public static void begin() {
+	} // tem que ser vazio
 
-	public static void commit(){
+	public static void commit() {
 		manager.commit();
 	}
-	public static void rollback(){
+
+	public static void rollback() {
 		manager.rollback();
 	}
 
-
-
 }
-

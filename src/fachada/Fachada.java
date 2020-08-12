@@ -40,18 +40,21 @@ public class Fachada {
 			String email) 
 					throws  Exception{
 		DAO.begin();	
-		Object daocliente = null;
-		Cliente cl = ((DAOCliente) daocliente).read(cpf);
+		//Object daocliente = null;
+		Cliente cl = daocliente.read(cpf);
+		//Cliente cl = ((DAOCliente) daocliente).read(cpf);
 		if(cl != null) {
 			DAO.rollback();
 			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
 		}
 
-		Cliente cl1 = new Cliente("Maria", "1232646", "ruaendereco", "maria@gmail", "12312231");
-		((DAO<Cliente>) daocliente).create(cl1);	
+		Cliente cl1 = new Cliente("nome", "cpf", "endereco","telefone","email");
+		//((DAO<Cliente>) daocliente).create(cl1);	
 		DAO.commit();
 		return cl1;
 	}
+	
+	
 //	public static String consultarClienteNTelefones(int n) {
 //		// TODO Auto-generated method stub
 //		return null;

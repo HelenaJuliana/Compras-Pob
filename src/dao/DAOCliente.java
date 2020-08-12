@@ -29,7 +29,7 @@ public class DAOCliente  extends DAO<Cliente>{
 		q.descend("cpf").constrain(cpf);
 		List<Cliente> resultados = q.execute();
 		if (resultados.size()>0)
-			return resultados.get(0);
+			return  resultados.get(0);
 		else
 			return null;
 	}
@@ -76,10 +76,7 @@ public class DAOCliente  extends DAO<Cliente>{
 	}
 
 
-	public List<Cliente> consultarCliente(String caracteres) {
-		// TODO Auto-generated method stub
-		return resultados;
-	}
+
 	
 }
 

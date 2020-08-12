@@ -16,7 +16,12 @@ public class Cliente {
     private ArrayList<Produto> produtos= new ArrayList<Produto>();
     private ArrayList<Item> itens= new ArrayList<Item>();
 	
-	public Cliente(String nome, String cpf, String endereco,String email,String telefone ) {
+	public Cliente(
+			String nome, 
+			String cpf, 
+			String endereco,
+			String email,
+			String telefone ) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
