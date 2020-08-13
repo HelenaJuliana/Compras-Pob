@@ -39,6 +39,12 @@ public class DAOPedidoItem extends DAO<Item>{
 	}
 
 
+	public void create(Item obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }
 }
 

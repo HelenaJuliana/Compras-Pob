@@ -76,6 +76,12 @@ public class DAOCliente  extends DAO<Cliente>{
 	}
 
 
+	public void create(Cliente obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 	
 }

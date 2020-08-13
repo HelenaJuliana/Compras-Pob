@@ -83,8 +83,8 @@ public abstract class DAO<T> implements DAOInterface<T> {
 
 	// ----------CRUD-----------------------
 
-	public void create(T obj) {
-		manager.store(obj);
+	public void create(Funcionario fun) {
+		manager.store(fun);
 	}
 
 	public abstract T read(Object chave);

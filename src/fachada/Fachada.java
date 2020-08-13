@@ -16,7 +16,7 @@ import modelo.Produto;
 import modelo.Venda;
 
 public class Fachada {
-	private static final String Clientes = null;
+	
 	private static DAOCliente daocliente = new DAOCliente();  
 	private static DAOFuncionario daofuncionario = new DAOFuncionario();  
 	private static DAOProduto daoproduto = new DAOProduto();
@@ -42,17 +42,29 @@ public class Fachada {
 		DAO.begin();	
 		//Object daocliente = null;
 		Cliente cl = daocliente.read(cpf);
+		Funcionario fun = daofuncionario.read(nome);
 		//Cliente cl = ((DAOCliente) daocliente).read(cpf);
 		if(cl != null) {
 			DAO.rollback();
 			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
 		}
 
-		Cliente cl1 = new Cliente("nome", "cpf", "endereco","telefone","email");
+		Cliente cl1 = new Cliente(
+					nome, 
+					cpf, 
+					endereco,
+					telefone,
+					email);
 		//((DAO<Cliente>) daocliente).create(cl1);	
-		DAO.commit();
+		
 		return cl1;
+		
+		
 	}
+	
+	
+		
+		
 	
 	
 //	public static String consultarClienteNTelefones(int n) {
@@ -68,24 +80,24 @@ public class Fachada {
 	public static Funcionario cadastrarFuncionario(String nome, String cpf) 
 			throws  Exception{
 		DAO.begin();	
-		Cliente cl = daocliente.read(nome);
-		if(cl != null) {
+		Funcionario fun = daofuncionario.read(nome);
+		if(fun != null) {
 			DAO.rollback();
 			throw new Exception("cadastrar funcionario - pessoa ja cadastrado:" + nome);
 		}
 
 		
-		cl = new Cliente("helena", "123", "rua tal", "helena@gmail.com","4561233");
-		daocliente.create(cl);	
+		fun = new Funcionario("nome","email");
+		daofuncionario.create(fun);	
 		DAO.commit();
-		return (Funcionario(cl));
+		return fun;
 	}
 
 
-private static Funcionario Funcionario(Cliente cl) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//private static Funcionario Funcionario(Cliente cl) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	public static String listarCliente(){
 		List<Cliente> pessoas = daocliente.readAll();

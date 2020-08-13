@@ -40,8 +40,8 @@ public class Cliente {
 	public String getCPF() {
 		return nome;
 	}
-	public void setCPF(String nome) {
-		this.nome = nome;
+	public void setCPF(String cpf) {
+		this.cpf = cpf;
 	}
 	
 	public String getEndereco() {
@@ -84,13 +84,19 @@ public class Cliente {
 		return produtos;
 	}
 
-
-
-@Override
-	public String toString() {
-		return "Cliente [produtos=" + produtos + ", itens=" + itens + "]";
-	}
 	
+	@Override
+	public String toString() {
+		return "Cliente [nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + ", telefone=" + telefone
+				+ ", email=" + email + "]";
+	}
+
+	  
+	
+
+
+
+
 		
 //	public void adicionar(telefone t){
 //		t.setPessoa(this);

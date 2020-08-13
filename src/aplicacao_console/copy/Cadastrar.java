@@ -20,13 +20,18 @@ public class Cadastrar {
 			
 //			Telefone t;
 			System.out.println("cadastrando...");
-			cl=Fachada.cadastrarCliente("joao", "1232646", "ruaendereco", "joao@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Pedro", "1232646", "ruaendereco", "Pedro@gmail", "12312231");
 //			t=Fachada.adicionarTelefonePessoa("joao","88880000");
 //			t=Fachada.adicionarTelefonePessoa("joao","88881111");	
 			System.out.println(cl);
 			
 			cl=Fachada.cadastrarCliente("Maria", "1232646", "ruaendereco", "maria@gmail", "12312231");
-//			t=Fachada.adicionarTelefonePessoa("maria","87882222");
+			System.out.println(cl);
+			
+			
+			
+			
+			//			t=Fachada.adicionarTelefonePessoa("maria","87882222");
 //			t=Fachada.adicionarTelefonePessoa("maria","88883333");
 			System.out.println(cl);
 

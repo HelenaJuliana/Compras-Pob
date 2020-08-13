@@ -25,6 +25,11 @@ public class DAOProduto  extends DAO<Produto>{
 		else
 			return null;
 	}
+
+	public void create(Produto obj) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	/**********************************************************
