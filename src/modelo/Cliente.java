@@ -19,8 +19,8 @@ public class Cliente {
 	public Cliente(
 			String nome, 
 			String cpf, 
-			String endereco,
-			String email,
+			String endereco, 
+			String email, 
 			String telefone ) {
 		super();
 		this.nome = nome;
@@ -30,6 +30,7 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 
+	
 	public String getNome() {
 		return nome;
 	}
@@ -84,7 +85,6 @@ public class Cliente {
 		return produtos;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Cliente [nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + ", telefone=" + telefone
@@ -92,11 +92,6 @@ public class Cliente {
 	}
 
 	  
-	
-
-
-
-
 		
 //	public void adicionar(telefone t){
 //		t.setPessoa(this);

@@ -49,7 +49,7 @@ public class TelaCadastroCliente {
 	 */
 	private void initialize() {
 		frmCadastroDeCliente = new JFrame();
-		frmCadastroDeCliente.setTitle("Cadastro de Pessoa");
+		frmCadastroDeCliente.setTitle("Cadastro de Cliente");
 		frmCadastroDeCliente.setBounds(100, 100, 321, 181);
 		frmCadastroDeCliente.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCadastroDeCliente.getContentPane().setLayout(null);
@@ -76,7 +76,7 @@ public class TelaCadastroCliente {
 					String cpf= textField.getText();;
 					String email= textField.getText();;
 					String telefone= textField.getText();;
-					Fachada.cadastrarCliente(cpf,nome,endereco,email,telefone);
+					Fachada.cadastrarCliente(nome,endereco,cpf,email,telefone);
 					label2.setText("cliente cadastrada");
 				}
 				catch(Exception e) {

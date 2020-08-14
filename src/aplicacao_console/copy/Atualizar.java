@@ -7,8 +7,11 @@ package aplicacao_console.copy;
  */
 
 
+import com.sun.tools.javac.util.List;
+
 import fachada.Fachada;
 import modelo.Cliente;
+import modelo.Produto;
 
 
 public class Atualizar {
@@ -16,10 +19,26 @@ public class Atualizar {
 	public Atualizar(){
 		Fachada.inicializar();
 		Cliente Cl;
+		Produto pro;
+		
+		
+		
 		try {
 			System.out.println("alterando...");
-			Cl = Fachada.cadastrarCliente("joao", "ruatal","222222","lll","hksahfk");
-		
+          	Cl = Fachada.AtualizarCliente("joao", "ruatal","222222","lll","hksahfk@j");
+//
+//          	 String nnome = "Joana"; 
+//			 String ncpf = "12354";
+//			 String nendereco = "ruamaria";
+//			 String nemail = "joana@gmail";
+//			 String ntelefone = "1458";
+//          	
+          	
+        
+          	
+          	
+          	
+          	
 //			Fachada.excluirTelefonePessoa("joana", "88881111");
 //			Fachada.alterarTelefone("88880000", "88889999");
 		} 
@@ -40,6 +59,8 @@ public class Atualizar {
 //		catch (Exception e) {
 //			System.out.println(e.getMessage());}
 //
+		
+		
 		Fachada.finalizar();
 		
 		System.out.println("fim do programa");

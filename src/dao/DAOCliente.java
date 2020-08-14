@@ -56,6 +56,8 @@ public class DAOCliente  extends DAO<Cliente>{
 		return result;
 	}
 
+	
+	
 	public int consultarTotalFuncionario() {
 		Query q = manager.query();
 		q.constrain(Funcionario.class);
@@ -80,6 +82,24 @@ public class DAOCliente  extends DAO<Cliente>{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public int consultarTotalClientes() {
+		Query q = manager.query();
+		q.constrain(Cliente.class);
+		int total = q.execute().size(); 
+		return total;
+	}
+
+
+
+	
+
+
+
+//	public void create(Cliente obj) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 
 

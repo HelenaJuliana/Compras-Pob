@@ -25,7 +25,8 @@ public class DAOProduto  extends DAO<Produto>{
 		else
 			return null;
 	}
-
+	
+	
 	public void create(Produto obj) {
 		// TODO Auto-generated method stub
 		
@@ -54,5 +55,24 @@ public class DAOProduto  extends DAO<Produto>{
 //		return result;
 //	}
 
+	public int consultarTotalProdutos() {
+		Query q = manager.query();
+		q.constrain(Produto.class);
+		int total = q.execute().size(); 
+		return total;
+	}
+
+	public List<Produto> consultarPorProduto(String n){
+		Query q = manager.query();
+		q.constrain(Produto.class);
+		q.descend("itens").descend("produto").descend("nomeProduto").constrain(n).like();
+		List<Produto> resultados = q.execute();
+		if(resultados.size()==0)
+			return null;
+		else
+			return resultados;
+
+	}
+	
 
 }
