@@ -18,7 +18,7 @@ public class Consultar {
 			System.out.println(Fachada.consultarClientePorParteNome("Pe") );
 			//System.out.print(Fachada.consultartotalDeClientes());
 //			System.out.println(Fachada.consultarClientesNPedidos(5) );
-     		//System.out.println(Fachada.consultarPorProduto1("Arroz"));
+     		System.out.println(Fachada.consultarPorProduto1("Calça"));
 			System.out.println(Fachada.consultartotalDeProdutos1());
 //			System.out.println(Fachada.consultartotalDeItens());
 			 

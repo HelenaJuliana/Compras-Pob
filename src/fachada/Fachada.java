@@ -59,6 +59,29 @@ public class Fachada {
 		
 	}
 	
+	public static Produto cadastrarProduto(
+			String cod, 
+			String nome_produto, 
+			int quant_estoq, 
+			String descricao) 
+					throws  Exception{
+		DAO.begin();	
+		//Object daocliente = null;
+		Produto cl = daoproduto.read(cod);
+		Object pro = null;
+		if(pro != null) {
+			DAO.rollback();
+			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
+		}
+
+		Produto pro1 = new Produto(
+		         cod, 
+			    nome_produto, 
+				quant_estoq, 
+				descricao);
+		return pro1;	
+	
+	}
 	
 	/**********************************************************
 	 *  CONSULTAS 

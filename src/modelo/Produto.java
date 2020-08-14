@@ -1,15 +1,15 @@
 package modelo;
 
-public class Produto {
+public class Produto{
 
 	
-	private int cod;
+	private String cod;
 	private String nome_produto;
 	private int quant_estoq;
 	private String  descricao;
 	
 	public Produto(
-			int cod, 
+			String cod, 
 			String nome_produto, 
 			int quant_estoq, 
 			String descricao) {
@@ -21,11 +21,18 @@ public class Produto {
 	
 	}
 
+	@Override
+	public String toString() {
+		return "Produto [cod=" + cod + ", nome_produto=" + nome_produto + ", quant_estoq=" + quant_estoq
+				+ ", descricao=" + descricao + "]";
+	}
+
 	public Produto(Object nomeProd) {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getCod() {
+	
+	public String getCod() {
 		return cod;
 	}
 
