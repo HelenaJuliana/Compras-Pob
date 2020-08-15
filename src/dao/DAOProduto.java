@@ -12,7 +12,7 @@ import modelo.Item;
 import modelo.Produto;
 
 public class DAOProduto  extends DAO<Produto>{
-	//numero é campo único 
+	//cod é campo único 
 	public Produto read (Object chave) {
 		String cod = (String) chave;
 		
@@ -27,10 +27,6 @@ public class DAOProduto  extends DAO<Produto>{
 	}
 	
 	
-	public void create(Produto obj) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	
 	/**********************************************************
@@ -73,6 +69,8 @@ public class DAOProduto  extends DAO<Produto>{
 			return resultados;
 
 	}
+
+
 	
 
 }

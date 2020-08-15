@@ -8,6 +8,7 @@ package aplicacao_console.copy;
 
 import fachada.Fachada;
 import modelo.Cliente;
+import modelo.Funcionario;
 
 
 public class Deletar {
@@ -15,9 +16,12 @@ public class Deletar {
 	public Deletar(){
 		Fachada.inicializar();
 		Cliente cl = null;
+		Funcionario fun = null;
 		try {
 			System.out.println("deletando...");
 			Fachada.excluirCliente("12326");
+			Fachada.excluirFuncionario("1234");
+			
 			System.out.println("");
 
 		} catch (Exception e) {

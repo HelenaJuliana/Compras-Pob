@@ -25,14 +25,6 @@ public class Produto{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "Produto [cod=" + cod + ", nome_produto=" + nome_produto + ", quant_estoq=" + quant_estoq
-				+ ", descricao=" + descricao + "]";
-	}
-
-	
-	
 	public String getCod() {
 		return cod;
 	}
@@ -68,6 +60,12 @@ public class Produto{
 	public void adicionar(Item i) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String toString() {
+		return "Produto [cod=" + cod + ", nome_produto=" + nome_produto + ", quant_estoq=" + quant_estoq
+				+ ", descricao=" + descricao + "]";
 	}
 
 }
