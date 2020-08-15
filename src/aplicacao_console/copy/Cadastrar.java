@@ -8,6 +8,7 @@ package aplicacao_console.copy;
 
 import fachada.Fachada;
 import modelo.Cliente;
+import modelo.Funcionario;
 import modelo.Produto;
 //import modelo.Telefone;
 
@@ -20,6 +21,7 @@ public class Cadastrar {
 			Cliente cl;
 			Produto pro;
 			Produto pro1;
+			Funcionario fun;
 			
 //			Telefone t;
 			System.out.println("cadastrando...");
@@ -29,12 +31,14 @@ public class Cadastrar {
 //			t=Fachada.adicionarTelefonePessoa("joao","88881111");
 			System.out.println(cl);
 			
-			cl=Fachada.cadastrarCliente("Maria", "1232646", "ruaendereco", "maria@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Maria", "123264", "ruaendereco", "maria@gmail", "12312231");
 			System.out.println(cl);
 			pro=Fachada.cadastrarProduto("1", "Calça", 2, "Camiseta Preta etc");
 			pro1=Fachada.cadastrarProduto("2", "Vestido", 4, "Vestido Vermelho etc");
+			fun = Fachada.cadastrarFuncionario("Carlos", "carlosvendas@gmail.com");
 			System.out.println(pro);
          	System.out.println(pro1);
+         	System.out.print(fun);
 
 	
 
@@ -48,11 +52,6 @@ public class Cadastrar {
 		System.out.println("fim do programa");
 	}
 
-
-//	public void cadastrar(){
-//	
-//
-//	}	
 
 
 	//=================================================

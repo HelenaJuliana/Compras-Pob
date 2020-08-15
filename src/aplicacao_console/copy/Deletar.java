@@ -7,16 +7,18 @@ package aplicacao_console.copy;
  */
 
 import fachada.Fachada;
+import modelo.Cliente;
 
 
 public class Deletar {
 
 	public Deletar(){
 		Fachada.inicializar();
+		Cliente cl = null;
 		try {
 			System.out.println("deletando...");
-			Fachada.excluirCliente("maria","");
-			System.out.println("deletou maria");
+			Fachada.excluirCliente("123264");
+			System.out.println("");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

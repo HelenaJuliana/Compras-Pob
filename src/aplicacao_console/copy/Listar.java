@@ -18,6 +18,7 @@ public class Listar {
 		try {
 			System.out.println(Fachada.listarCliente());
 			System.out.println(Fachada.listarFuncionario());
+			System.out.print(Fachada.listarProdutos());
 //			System.out.println(Fachada.listarItem());
 //			System.out.println(Fachada.listarProduto());
 //			System.out.println(Fachada.listarTelefones());

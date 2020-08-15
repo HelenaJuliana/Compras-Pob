@@ -2,6 +2,10 @@ package modelo;
 
 public class Funcionario {
 	
+	@Override
+	public String toString() {
+		return "Funcionario [nome=" + nome + ", email=" + email + "]";
+	}
 	private String nome;
 	private String email;
 

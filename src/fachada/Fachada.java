@@ -40,10 +40,8 @@ public class Fachada {
 			String email) 
 					throws  Exception{
 		DAO.begin();	
-		//Object daocliente = null;
 		Cliente cl = daocliente.read(cpf);
 		Funcionario fun = daofuncionario.read(nome);
-		//Cliente cl = ((DAOCliente) daocliente).read(cpf);
 		if(cl != null) {
 			DAO.rollback();
 			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
@@ -66,7 +64,6 @@ public class Fachada {
 			String descricao) 
 					throws  Exception{
 		DAO.begin();	
-		//Object daocliente = null;
 		Produto cl = daoproduto.read(cod);
 		Object pro = null;
 		if(pro != null) {
@@ -87,19 +84,19 @@ public class Fachada {
 	 *  CONSULTAS 
 	 **********************************************************/
 
-public static String consultarClientePorParteNome(String n) {
-	List<Cliente> result = daocliente.consultarClientePorParteNome(n);
-	String texto = "\nCONSULTAR CLIENTE DE " + n.toUpperCase() + ":";
-	if (result.isEmpty())  
-		texto += "consulta vazia";
-	else 
-		for(Cliente t: result)texto += "\n" + t;
-	return texto;
+  public static String consultarClientePorParteNome(String n) {
+		List<Cliente> result = daocliente.consultarClientePorParteNome(n);
+		String texto = "\nCONSULTAR CLIENTE DE " + n.toUpperCase() + ":";
+		if (result.isEmpty())  
+			texto += "consulta vazia";
+		else 
+			for(Cliente t: result)texto += "\n" + t;
+		return texto;
 }
 
 
 
-public static String consultartotalDeClientes() {
+  public static String consultartotalDeClientes() {
 	int clientes = daocliente.consultarTotalClientes();
 	return "\nTOTAL DE CLIENTES: " + clientes;
 	
@@ -126,8 +123,7 @@ public static String consultarPorProduto1(String n) {
 	return texto;
 }
 
-
-	public static Funcionario cadastrarFuncionario(String nome, String cpf) 
+	public static Funcionario cadastrarFuncionario(String nome, String email) 
 			throws  Exception{
 		DAO.begin();	
 		Funcionario fun = daofuncionario.read(nome);
@@ -137,7 +133,7 @@ public static String consultarPorProduto1(String n) {
 		}
 
 		
-		fun = new Funcionario(nome,"email");
+		fun = new Funcionario(nome,email);
 		daofuncionario.create(fun);	
 		DAO.commit();
 		return fun;
@@ -195,7 +191,16 @@ public static String consultarPorProduto1(String n) {
 				return texto;
 			}
 		
-
+			//LISTAR TODOS OS PRODUTOS
+			public static String listarProdutos() { 	
+				List<Produto> aux = daoproduto.readAll();
+				String texto="-----------listagem de Produtos---------\n";
+				for(Produto t: aux) {
+					texto += "\n" + t; 
+				}
+				return texto;
+			}
+			
 	
 	//LISTAR TODOS OS ITENS
 	public static String listarItem() {
@@ -217,12 +222,22 @@ public static String consultarPorProduto1(String n) {
 			return texto;
 			
 		}
-	
-	public static void excluirCliente(String string, String string2) {
-		// TODO Auto-generated method stub
+		  //EXCLUINDO CLIENTE
+		public static void excluirCliente(String cpf) throws Exception {
+			DAO.begin();
+			Cliente cl= daocliente.read(cpf);
+			
+			if (cl==null) {
+				DAO.rollback();
+				throw new Exception("excluir Cliente - cpf inexistente:" + cpf);
+			}
+			
+			System.out.println("deletando o cliente:" + cl.getNome());
+			daocliente.delete(cl);  //cascata
+			DAO.commit();
+		}
 		
-	}
-	
+		
 			
 	public static Cliente AtualizarCliente(
 			String nnome, 
