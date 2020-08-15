@@ -14,7 +14,7 @@ public class Venda {
 	private float valor;
 	private String venda;
 
-	Funcionario funcionario = new Funcionario("marcia", "marcia@gmail");
+	Funcionario funcionario = new Funcionario("0120","marcia", "marcia@gmail");
 	Cliente cliente = new Cliente("Pedro","123.456.789-78","Rua blabla","pedro@gmail.com","124644");
     Item itens2 = new Item(1 ,"Vestido", 1, 50.0);
 

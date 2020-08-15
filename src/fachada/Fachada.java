@@ -76,7 +76,7 @@ public class Fachada {
 		Produto pro = daoproduto.read(cod);
 		if(pro != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar Cliente - pessoa ja cadastrado:" + nome_produto);
+			throw new Exception("cadastrar Produto- produto ja cadastrado:" + nome_produto);
 		}
 
 		

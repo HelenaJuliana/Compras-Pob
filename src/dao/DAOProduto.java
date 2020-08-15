@@ -14,11 +14,11 @@ import modelo.Produto;
 public class DAOProduto  extends DAO<Produto>{
 	//numero é campo único 
 	public Produto read (Object chave) {
-		String num = (String) chave;
+		String cod = (String) chave;
 		
 		Query q = manager.query();
 		q.constrain(Produto.class);
-		q.descend("numero").constrain(num);
+		q.descend("numero").constrain(cod);
 		List<Produto> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);
