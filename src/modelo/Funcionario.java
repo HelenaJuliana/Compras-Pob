@@ -2,19 +2,19 @@ package modelo;
 
 public class Funcionario {
 	
-	@Override
-	public String toString() {
-		return "Funcionario [nome=" + nome + ", email=" + email + "]";
-	}
+	private String cpf;
 	private String nome;
 	private String email;
 
-	public Funcionario( String nome,String email) {
+	public Funcionario( String cpf,String nome,String email) {
+		this.cpf = cpf;
 		this.nome = nome;
 		this.email = email;
 			
 	}
 	
+	
+
 	public String getNome() {
 		return nome;
 	}
@@ -29,4 +29,8 @@ public class Funcionario {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", email=" + email + "]";
+	}
 }

@@ -31,6 +31,11 @@ public class Fachada {
 	public static void finalizar(){
 		DAO.close();
 	}
+	
+
+	/**********************************************************
+	 *  CADASTRAR
+	 **********************************************************/
 	public static Cliente cadastrarCliente(
 			
 			String nome, 
@@ -47,7 +52,8 @@ public class Fachada {
 		}
 
 		
-		cl = new Cliente(nome, 
+	cl = new Cliente(
+				nome, 
 			    cpf, 
 				endereco,
 			    telefone,
@@ -57,38 +63,14 @@ public class Fachada {
 		return cl;
 	}
 
-//	
-//	public static Produto cadastrarProduto(
-//			String cod, 
-//			String nome_produto, 
-//			int quant_estoq, 
-//			String descricao) 
-//					throws  Exception{
-//		DAO.begin();	
-//	    pro = daoproduto.read(cod);
-//		
-//		if(pro != null) {
-//			DAO.rollback();
-//			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
-//		}
-//		 pro = new Produto(
-//		         cod, 
-//			    nome_produto, 
-//				quant_estoq, 
-//				descricao);
-//		daoproduto.create(pro);	
-//		DAO.commit();
-//		return pro;	
-//	
-//	}
-//	
-	
+
+
 	public static Produto cadastrarProduto(
 			
 			String cod, 
 			String nome_produto, 
-		int quant_estoq, 
-		String descricao) 
+			int quant_estoq, 
+			String descricao) 
 			throws  Exception{
 		DAO.begin();	
 		Produto pro = daoproduto.read(cod);
@@ -98,17 +80,38 @@ public class Fachada {
 		}
 
 		
-		pro = new Produto(cod, 
-		    nome_produto, 
-			quant_estoq, 
-			descricao);
+		pro = new Produto(
+				cod, 
+			    nome_produto, 
+				quant_estoq, 
+				descricao);
 		daoproduto.create(pro);	
 		DAO.commit();
 		return pro;
 	}
 	
 	
-	
+
+	public static Funcionario cadastrarFuncionario(
+			String cpf ,
+			String nome, 
+			String email) 
+			throws  Exception{
+		DAO.begin();	
+		Funcionario fun = daofuncionario.read(cpf);
+		if(fun != null) {
+			DAO.rollback();
+			throw new Exception("cadastrar funcionario - pessoa ja cadastrado:" + nome);
+		}
+
+		
+		fun = new Funcionario( cpf, nome,email);
+		daofuncionario.create(fun);	
+		DAO.commit();
+		return fun;
+	}
+
+
 	
 	
 	/**********************************************************
@@ -146,23 +149,6 @@ public static String consultarPorProduto1(String n) {
 	return texto;
 }
 
-	public static Funcionario cadastrarFuncionario(String nome, String email) 
-			throws  Exception{
-		DAO.begin();	
-		Funcionario fun = daofuncionario.read(nome);
-		if(fun != null) {
-			DAO.rollback();
-			throw new Exception("cadastrar funcionario - pessoa ja cadastrado:" + nome);
-		}
-
-		
-		fun = new Funcionario(nome,email);
-		daofuncionario.create(fun);	
-		DAO.commit();
-		return fun;
-	}
-
-
 	
 	/**********************************************************
 	 *  SELECIONAR
@@ -196,9 +182,9 @@ public static String consultarPorProduto1(String n) {
 	
 //LISTAR TODOS OS clientes
 			public static String listarCliente() { 	
-				List<Cliente> aux = daocliente.readAll();
+				List<Cliente> clientes = daocliente.readAll();
 				String texto="-----------listagem de Clientes---------\n";
-				for(Cliente t: aux) {
+				for(Cliente t: clientes) {
 					texto += "\n" + t; 
 				}
 				return texto;
@@ -300,7 +286,7 @@ public static String consultarPorProduto1(String n) {
 		
 		
 	}
-	
+
 	
 	
 		

@@ -61,12 +61,11 @@ public class Cliente {
 		this.email = email;
 	}
 	
-	////////////////////////////////////////////////////////
 	
 	public void adicionar(Produto p){
 		p.setCod(this);
 		this.produtos.add(p);
-//		this.pedidos.add(p);
+
 	}
 
 	public void remover(Produto p){
@@ -92,18 +91,5 @@ public class Cliente {
 		return "Cliente [nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + ", telefone=" + telefone
 				+ ", email=" + email + "]";
 	}
-
-	  
-		
-//	public void adicionar(telefone t){
-//		t.setPessoa(this);
-//		this.telefones.add(t);
-//	}
-//
-//	public void remover(telefone t){
-//		t.setPessoa(null);
-//		this.telefones.remove(t);
-//	}
-
 	
 }

@@ -17,7 +17,7 @@ public class Deletar {
 		Cliente cl = null;
 		try {
 			System.out.println("deletando...");
-			Fachada.excluirCliente("123264");
+			Fachada.excluirCliente("12346");
 			System.out.println("");
 
 		} catch (Exception e) {
