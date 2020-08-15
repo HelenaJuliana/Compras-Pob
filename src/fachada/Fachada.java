@@ -36,35 +36,34 @@ public class Fachada {
 	/**********************************************************
 	 *  CADASTRAR
 	 **********************************************************/
-	public static Cliente cadastrarCliente(
-			
+
+ public static Cliente cadastrarCliente(
 			String nome, 
 			String cpf,
-		    String endereco,
-		    String telefone, 
-   		    String email) 
-			throws  Exception{
+			String endereco,
+			String telefone, 
+			String email) 
+					throws  Exception{
 		DAO.begin();	
 		Cliente cl = daocliente.read(cpf);
+		
 		if(cl != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar Cliente - pessoa ja cadastrado:" + nome);
+			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
 		}
 
-		
-	cl = new Cliente(
-				nome, 
-			    cpf, 
-				endereco,
-			    telefone,
-			    email);
-		daocliente.create(cl);	
+		 cl = new Cliente(
+					nome, 
+					cpf, 
+					endereco,
+					telefone,
+					email);
+		daofuncionario.create(cl);	
 		DAO.commit();
-		return cl;
+		return cl;	
+		
 	}
-
-
-
+	
 	public static Produto cadastrarProduto(
 			
 			String cod, 
@@ -182,9 +181,9 @@ public static String consultarPorProduto1(String n) {
 	
 //LISTAR TODOS OS clientes
 			public static String listarCliente() { 	
-				List<Cliente> clientes = daocliente.readAll();
+				List<Cliente> aux = daocliente.readAll();
 				String texto="-----------listagem de Clientes---------\n";
-				for(Cliente t: clientes) {
+				for(Cliente t: aux) {
 					texto += "\n" + t; 
 				}
 				return texto;

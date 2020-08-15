@@ -16,22 +16,17 @@ public class Cliente {
     private ArrayList<Produto> produtos= new ArrayList<Produto>();
     private ArrayList<Item> itens= new ArrayList<Item>();
 	
-	public Cliente(
-			String nome, 
-			String cpf, 
-			String endereco, 
-			String email, 
-			String telefone ) {
-		super();
+public Cliente (String nome, 
+				String cpf, 
+				String endereco, 
+				String email, 
+				String telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.email = email;
 		this.telefone = telefone;
 	}
-
-	
-
 
 	public String getNome() {
 		return nome;

@@ -25,7 +25,7 @@ public class Cadastrar {
 			
 //			Telefone t;
 			System.out.println("cadastrando...");
-			cl=Fachada.cadastrarCliente("Helena", "123264611", "ruaendereco", "helena@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Artenia", "32689", "ruaendereco", "artenializ@gmail", "12312231");
 			
 //			t=Fachada.adicionarTelefonePessoa("joao","88880000");
 //			t=Fachada.adicionarTelefonePessoa("joao","88881111");
