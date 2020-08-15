@@ -38,11 +38,11 @@ public class Fachada {
 	 **********************************************************/
 
  public static Cliente cadastrarCliente(
-			String nome, 
-			String cpf,
-			String endereco,
-			String telefone, 
-			String email) 
+		   String cpf,
+		   String nome, 
+		   String endereco,
+		   String telefone, 
+		   String email) 
 					throws  Exception{
 		DAO.begin();	
 		Cliente cl = daocliente.read(cpf);
@@ -53,12 +53,13 @@ public class Fachada {
 		}
 
 		 cl = new Cliente(
-					nome, 
-					cpf, 
+				    cpf,
+					nome,  
 					endereco,
 					telefone,
 					email);
-		daofuncionario.create(cl);	
+		
+		daofuncionario.create(cl);
 		DAO.commit();
 		return cl;	
 		
@@ -72,7 +73,7 @@ public class Fachada {
 			throws  Exception{
 		DAO.begin();	
 		Produto pro = daoproduto.read(cod);
-		if(cod != null) {
+		if(cod == null) {
 			DAO.rollback();
 			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
 		}
@@ -233,7 +234,7 @@ public static String consultarPorProduto1(String n) {
 			DAO.commit();
 		}
 		
-		//EXCLUINDO FUNCIONARIOS
+//EXCLUINDO FUNCIONARIOS
 				public static void excluirFuncionario(String cpf) throws Exception {
 					DAO.begin();
 					Funcionario fun= daofuncionario.read(cpf);

@@ -20,29 +20,27 @@ public class Cadastrar {
 			Fachada.inicializar();
 			Cliente cl;
 			Produto pro;
-			Produto pro1;
 			Funcionario fun;
 			
-//			Telefone t;
 			System.out.println("cadastrando...");
-			//cl=Fachada.cadastrarCliente("Maria Clara", "452689", "ruaendereco", "maria@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Clara 10", "881220", "ruaendereco", "clara@gmail", "12312231");
+			System.out.println(cl);
+			
+			//cl=Fachada.cadastrarCliente("Joana", "1", "ruaendereco", "joana@gmail", "12312231");
+			//cl=Fachada.cadastrarCliente("Joana1", "11111", "ruaendereco", "joana@gmail", "12312231");
+			
+			//System.out.println(cl);
+			//pro=Fachada.cadastrarProdutos("1033", "Vestido 6", 100, "Preto e branco  etc");
+			//pro1=Fachada.cadastrarProduto("2", "Vestido", 4, "Vestido Vermelho etc");
+			//fun = Fachada.cadastrarFuncionario("175","Luana 5", "luanavendas@gmail.com");
+			//System.out.println(pro);
+         	//System.out.println(pro1);
+         	//System.out.print(fun);
+
 			
 //			t=Fachada.adicionarTelefonePessoa("joao","88880000");
 //			t=Fachada.adicionarTelefonePessoa("joao","88881111");
 			//System.out.println(cl);
-			
-			//cl=Fachada.cadastrarCliente("Joana", "10000", "ruaendereco", "joana@gmail", "12312231");
-			//cl=Fachada.cadastrarCliente("Joana1", "11111", "ruaendereco", "joana@gmail", "12312231");
-			//System.out.println(cl);
-			//System.out.println(cl);
-			pro=Fachada.cadastrarProdutos("98", "Tênis 2", 1, "Preto e branco  etc");
-			//pro1=Fachada.cadastrarProduto("2", "Vestido", 4, "Vestido Vermelho etc");
-			fun = Fachada.cadastrarFuncionario("1234","Laura", "lauravendas@gmail.com");
-			System.out.println(pro);
-         	//System.out.println(pro1);
-         	System.out.print(fun);
-
-	
 
 		} catch (Exception e) 	{
 			System.out.println(e.getMessage());

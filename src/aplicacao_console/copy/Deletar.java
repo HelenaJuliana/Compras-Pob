@@ -19,8 +19,9 @@ public class Deletar {
 		Funcionario fun = null;
 		try {
 			System.out.println("deletando...");
-			Fachada.excluirCliente("12326");
-			Fachada.excluirFuncionario("1234");
+			Fachada.excluirCliente("88444");
+			
+			//Fachada.excluirFuncionario("1234");
 			
 			System.out.println("");
 
