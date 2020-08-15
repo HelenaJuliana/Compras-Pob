@@ -17,6 +17,7 @@ import com.db4o.cs.config.ClientConfiguration;
 import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Item;
+import modelo.Produto;
 
 public abstract class DAO<T> implements DAOInterface<T> {
 	protected static ObjectContainer manager;
@@ -84,6 +85,14 @@ public abstract class DAO<T> implements DAOInterface<T> {
 	// ----------CRUD-----------------------
 
 	public void create(Funcionario obj) {
+		manager.store(obj);
+	}
+	
+	public void create(Cliente obj) {
+		manager.store(obj);
+	}
+	
+	public void create(Produto obj) {
 		manager.store(obj);
 	}
 

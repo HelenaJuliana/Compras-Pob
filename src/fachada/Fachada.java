@@ -31,54 +31,85 @@ public class Fachada {
 	public static void finalizar(){
 		DAO.close();
 	}
-
 	public static Cliente cadastrarCliente(
+			
 			String nome, 
 			String cpf,
-			String endereco,
-			String telefone, 
-			String email) 
-					throws  Exception{
+		    String endereco,
+		    String telefone, 
+   		    String email) 
+			throws  Exception{
 		DAO.begin();	
 		Cliente cl = daocliente.read(cpf);
-		Funcionario fun = daofuncionario.read(nome);
 		if(cl != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
+			throw new Exception("cadastrar Cliente - pessoa ja cadastrado:" + nome);
 		}
 
-		Cliente cl1 = new Cliente(
-					nome, 
-					cpf, 
-					endereco,
-					telefone,
-					email);
-		return cl1;	
 		
+		cl = new Cliente(nome, 
+			    cpf, 
+				endereco,
+			    telefone,
+			    email);
+		daocliente.create(cl);	
+		DAO.commit();
+		return cl;
 	}
+
+//	
+//	public static Produto cadastrarProduto(
+//			String cod, 
+//			String nome_produto, 
+//			int quant_estoq, 
+//			String descricao) 
+//					throws  Exception{
+//		DAO.begin();	
+//	    pro = daoproduto.read(cod);
+//		
+//		if(pro != null) {
+//			DAO.rollback();
+//			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
+//		}
+//		 pro = new Produto(
+//		         cod, 
+//			    nome_produto, 
+//				quant_estoq, 
+//				descricao);
+//		daoproduto.create(pro);	
+//		DAO.commit();
+//		return pro;	
+//	
+//	}
+//	
 	
 	public static Produto cadastrarProduto(
+			
 			String cod, 
 			String nome_produto, 
-			int quant_estoq, 
-			String descricao) 
-					throws  Exception{
+		int quant_estoq, 
+		String descricao) 
+			throws  Exception{
 		DAO.begin();	
-		Produto cl = daoproduto.read(cod);
-		Object pro = null;
+		Produto pro = daoproduto.read(cod);
 		if(pro != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
+			throw new Exception("cadastrar Cliente - pessoa ja cadastrado:" + nome_produto);
 		}
 
-		Produto pro1 = new Produto(
-		         cod, 
-			    nome_produto, 
-				quant_estoq, 
-				descricao);
-		return pro1;	
-	
+		
+		pro = new Produto(cod, 
+		    nome_produto, 
+			quant_estoq, 
+			descricao);
+		daoproduto.create(pro);	
+		DAO.commit();
+		return pro;
 	}
+	
+	
+	
+	
 	
 	/**********************************************************
 	 *  CONSULTAS 
@@ -94,19 +125,11 @@ public class Fachada {
 		return texto;
 }
 
-
-
   public static String consultartotalDeClientes() {
 	int clientes = daocliente.consultarTotalClientes();
 	return "\nTOTAL DE CLIENTES: " + clientes;
 	
 }
-
-//public static String consultartotalDePedidos() {
-//	int pedidos = daopedido.consultarTotalPedidos();
-//	return "TOTAL DE PEDIDOS: " + pedidos;
-//	
-//}
 
 public static String consultartotalDeProdutos1() {
 	int produtos = daoproduto.consultarTotalProdutos();
@@ -171,7 +194,7 @@ public static String consultarPorProduto1(String n) {
 		return i;
 	}
 	
-	//LISTAR TODOS OS clientes
+//LISTAR TODOS OS clientes
 			public static String listarCliente() { 	
 				List<Cliente> aux = daocliente.readAll();
 				String texto="-----------listagem de Clientes---------\n";
@@ -191,7 +214,7 @@ public static String consultarPorProduto1(String n) {
 				return texto;
 			}
 		
-			//LISTAR TODOS OS PRODUTOS
+//LISTAR TODOS OS PRODUTOS
 			public static String listarProdutos() { 	
 				List<Produto> aux = daoproduto.readAll();
 				String texto="-----------listagem de Produtos---------\n";
@@ -202,7 +225,7 @@ public static String consultarPorProduto1(String n) {
 			}
 			
 	
-	//LISTAR TODOS OS ITENS
+//LISTAR TODOS OS ITENS
 	public static String listarItem() {
 		List<Produto> aux = daoitens.readAll();
 		String texto="-----------listagem de Pedidos---------\n";
@@ -212,7 +235,7 @@ public static String consultarPorProduto1(String n) {
 		return texto;
 	}
 	
-	// LISTAR Produtos
+// LISTAR Produtos
 		public static String listarProduto() {
 			List<Produto> aux = daoproduto.readAll();
 			String texto="-----------listagem de Produtos---------\n";
@@ -222,7 +245,8 @@ public static String consultarPorProduto1(String n) {
 			return texto;
 			
 		}
-		  //EXCLUINDO CLIENTE
+		
+//EXCLUINDO CLIENTE
 		public static void excluirCliente(String cpf) throws Exception {
 			DAO.begin();
 			Cliente cl= daocliente.read(cpf);
@@ -238,7 +262,7 @@ public static String consultarPorProduto1(String n) {
 		}
 		
 		
-			
+// Atualizar Cliente não serve pra nada		
 	public static Cliente AtualizarCliente(
 			String nnome, 
 			String ncpf, 

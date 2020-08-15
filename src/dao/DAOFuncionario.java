@@ -6,7 +6,7 @@ package dao;
 import java.util.List;
 import com.db4o.query.Query;
 
-import modelo.Cliente;
+
 import modelo.Funcionario;
 
 public class DAOFuncionario  extends DAO<Funcionario>{
@@ -24,9 +24,6 @@ public class DAOFuncionario  extends DAO<Funcionario>{
 			return null;
 	}
 
-	public void create(modelo.Cliente cl) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
 

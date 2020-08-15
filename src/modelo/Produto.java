@@ -21,16 +21,17 @@ public class Produto{
 	
 	}
 
+	public Produto(Object nomeProd) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "Produto [cod=" + cod + ", nome_produto=" + nome_produto + ", quant_estoq=" + quant_estoq
 				+ ", descricao=" + descricao + "]";
 	}
 
-	public Produto(Object nomeProd) {
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	
 	public String getCod() {
 		return cod;
