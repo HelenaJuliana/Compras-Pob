@@ -23,14 +23,14 @@ public class Cadastrar {
 			Funcionario fun;
 			
 			System.out.println("cadastrando...");
-			cl=Fachada.cadastrarCliente("Clara 10", "881220", "ruaendereco", "clara@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Clara ", "881220", "ruaendereco", "clara@gmail", "12312231");
 			System.out.println(cl);
 			
 			//cl=Fachada.cadastrarCliente("Joana", "1", "ruaendereco", "joana@gmail", "12312231");
 			//cl=Fachada.cadastrarCliente("Joana1", "11111", "ruaendereco", "joana@gmail", "12312231");
 			
 			//System.out.println(cl);
-			//pro=Fachada.cadastrarProdutos("1033", "Vestido 6", 100, "Preto e branco  etc");
+			//pro=Fachada.cadastrarProdutos("1234", "Vestido 7", 100, "Preto e branco  etc");
 			//pro1=Fachada.cadastrarProduto("2", "Vestido", 4, "Vestido Vermelho etc");
 			//fun = Fachada.cadastrarFuncionario("175","Luana 5", "luanavendas@gmail.com");
 			//System.out.println(pro);

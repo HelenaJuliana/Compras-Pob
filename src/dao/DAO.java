@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.io.File;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public abstract class DAO<T> implements DAOInterface<T> {
 
 	public static void abrirBancoLocal() {
 		// Backup.criar("banco.db4o"); //criar uma copia do banco
-		// new File("banco.db4o").delete(); //apagar o banco
+		 //new File("banco.db4o").delete(); //apagar o banco
 		EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
 		config.common().messageLevel(0); // 0,1,2,3...
 
@@ -84,15 +85,11 @@ public abstract class DAO<T> implements DAOInterface<T> {
 
 	// ----------CRUD-----------------------
 
+	public abstract T read(Object chave);
+	
 	public void create(T obj){
 		manager.store( obj );
 	}
-	
-	public void create(Cliente cl){
-		manager.store( cl );
-	}
-
-	public abstract T read(Object chave);
 
 	public T update(T obj) {
 		manager.store(obj);

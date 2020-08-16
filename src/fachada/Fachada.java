@@ -59,7 +59,7 @@ public class Fachada {
 					telefone,
 					email);
 		
-		daofuncionario.create(cl);
+		daocliente.create(cl);
 		DAO.commit();
 		return cl;	
 		
@@ -73,7 +73,7 @@ public class Fachada {
 			throws  Exception{
 		DAO.begin();	
 		Produto pro = daoproduto.read(cod);
-		if(cod == null) {
+		if(cod != null) {
 			DAO.rollback();
 			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
 		}
@@ -249,6 +249,21 @@ public static String consultarPorProduto1(String n) {
 					DAO.commit();
 				}
 						
+//EXCLUINDO PRODUTO
+public static void excluirProduto(String cod) throws Exception {
+					DAO.begin();
+					Produto pro= daoproduto.read(cod);
+					
+					if (pro==null) {
+						DAO.rollback();
+						throw new Exception("excluir Produto - código inexistente:" + cod);
+					}
+					
+					System.out.println("deletando o produto:" + pro.getNome_produto());
+					daoproduto.delete(pro);  //cascata
+					DAO.commit();
+				}
+				
 // Atualizar Cliente não serve pra nada		
 	public static Cliente AtualizarCliente(
 			String nnome, 

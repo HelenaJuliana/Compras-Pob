@@ -3,6 +3,7 @@
  */
 package dao;
 
+
 import java.nio.file.Files;
 import java.util.List;
 
@@ -77,11 +78,6 @@ public class DAOCliente  extends DAO<Cliente>{
 
 	}
 
-
-	public void create(Cliente obj) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public int consultarTotalClientes() {
 		Query q = manager.query();
