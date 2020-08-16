@@ -49,9 +49,8 @@ public class Fachada {
 		
 		if(cl != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
+			throw new Exception("cadastrar cliente - cliente já cadastrado:" + nome);
 		}
-
 		 cl = new Cliente(
 				    cpf,
 					nome,  
