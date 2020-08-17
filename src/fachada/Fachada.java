@@ -49,7 +49,7 @@ public class Fachada {
 		
 		if(cl != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar cliente - cliente já cadastrado:" + nome);
+			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
 		}
 		 cl = new Cliente(
 				    cpf,
@@ -262,146 +262,35 @@ public static void excluirProduto(String cod) throws Exception {
 					daoproduto.delete(pro);  //cascata
 					DAO.commit();
 				}
-				
-// Atualizar Cliente não serve pra nada		
-	public static Cliente AtualizarCliente(
-			String nnome, 
-			String ncpf, 
-			String nendereco, 
-			String ntelefone,
-			String nemail
 
-)
-			throws  Exception{
-		DAO.begin();	
-		
-		Cliente cl1 = new Cliente(
-					nnome, 
-					ncpf, 
-					nendereco,
-					ntelefone,
-					nemail);
-		//((DAO<Cliente>) daocliente).create(cl1);	
-		
-		return cl1;
-
-		
-		
-		
-		
-//		///atualizar
-//cod_Iten++;
-//Produto pr1 = new Produto(nome_produto);
-//Item i = new Item(cod_Iten,pr1,quant,pr1);
-//pr1.adicionar(i);
-//daoproduto.update(pr1);
-//DAO.commit();
-//return i;
-//}
-		
-		
+///// atualizar
+public static void AtualizarCliente(
+		String nome,
+		String cpf, 
+		String nnome, 
+		String email, 
+		String telefone
+		) 
+		throws Exception{
+	DAO.begin();		
+	Cliente cl = daocliente.read(cpf);	
+	
+	if (cl!=null) {
+		DAO.rollback();
+		throw new Exception("alterar pessoa - nome inexistente:" +cpf);
 	}
+	System.out.println("alterando o cliente:" + nome);
 
+	cl.setNome(nome); 			
+	cl=daocliente.update(cl);     	
+	DAO.commit();	
 	
-	
-		
-		////////////////////update teste
-		
-	
-//	public static Cliente AtualizarCliente(
-//				
-//			
-//			String nnome, 
-//			String ncpf,
-//			String nendereco,
-//			String ntelefone, 
-//			String nemail) 
-//					throws  Exception{
-//		DAO.begin();	
-//		//Object daocliente = null;
-//		Cliente cl = daocliente.read(ncpf);
-//		Funcionario fun = daofuncionario.read(nnome);
-//		//Cliente cl = ((DAOCliente) daocliente).read(cpf);
-//		if(cl != null) {
-//			DAO.rollback();
-//			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
-//		}
-//	
-//		Cliente cl1 = new Cliente(
-//					nnome, 
-//					ncpf, 
-//					nendereco,
-//					ntelefone,
-//					nemail);
-//		//((DAO<Cliente>) daocliente).create(cl1);	
-//		
-//		return cl1;
-//		
-//		
-//	}
-
-
-	//private static Funcionario Funcionario(Cliente cl) {
-//			// TODO Auto-generated method stub
-//			return null;
-//		}
-		
-		
-		//* PEDIDO ITENS 
-		 //**********************************************************/
-		
-		//SELECIONA ITENS
-		//Problema com o codigo
-//		public static Item selecionarProdutos(
-//					Integer cod, 
-//					String nome_produto,
-//					Integer quant_estoq,
-//					String  descricao, 
-//					int cod_Iten, 
-//					int quant
-//				
-//				) throws  Exception{
-//			DAO.begin();
-			
-			///////atualizar  
-//			public void atualizarCliente(
-//					String _nome, 
-//					String cpf, 
-//					String endereco,
-//					String email,
-//					String telefone)
-//			Object q;
-//			List<Cliente> resultados = null;
-//			if(resultados.size() > 0) {	
-//				Cliente cl = resultados.get(0);
-//				cl.setNome("Laura");
-//				DAO.rollback();
-//				throw new Exception("teste");
-//			};
-//			
-//			Produto pr = daoproduto.read(cod);
-//			System.out.println(pr);
-//			if(pr == null) {
-//				DAO.rollback();
-//				throw new Exception("adicionar Produto- Produto nao cadastrado:");
-//			}
-//					///atualizar
-//			cod_Iten++;
-//			Produto pr1 = new Produto(nome_produto);
-//			Item i = new Item(cod_Iten,pr1,quant,pr1);
-//			pr1.adicionar(i);
-//			daoproduto.update(pr1);
-//			DAO.commit();
-//			return i;
-//		}
-	//	
-
-
-
 }
-
-
+}
+		
+		
 	
+
 	
 	
 	

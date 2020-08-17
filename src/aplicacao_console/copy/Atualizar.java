@@ -18,16 +18,15 @@ public class Atualizar {
 
 	public Atualizar(){
 		Fachada.inicializar();
-		Cliente Cl;
+		Cliente cl;
 		Produto pro;
-		
-		
 		
 		try {
 			System.out.println("alterando...");
-          	Cl = Fachada.AtualizarCliente("joao", "ruatal","222222","lll","hksahfk@j");
+			
+            cl = Fachada.AtualizarCliente("Clara", "ruatal","222222","lll","hksahfk@j");
 //
-//          	 String nnome = "Joana"; 
+       //  	 String nnome = "Joana"; 
 //			 String ncpf = "12354";
 //			 String nendereco = "ruamaria";
 //			 String nemail = "joana@gmail";
