@@ -265,23 +265,20 @@ public static void excluirProduto(String cod) throws Exception {
 
 ///// atualizar
 public static void AtualizarCliente(
-		String nome,
-		String cpf, 
-		String nnome, 
-		String email, 
-		String telefone
+		String cpf,
+		String novonome
 		) 
 		throws Exception{
 	DAO.begin();		
 	Cliente cl = daocliente.read(cpf);	
 	
-	if (cl!=null) {
+	if (cl==null) {
 		DAO.rollback();
-		throw new Exception("alterar pessoa - nome inexistente:" +cpf);
+		throw new Exception( "Cliente" + cpf + " inexistente");
 	}
-	System.out.println("alterando o cliente:" + nome);
+	System.out.println("alterando o cliente:" + cpf);
 
-	cl.setNome(nome); 			
+	cl.setNome(novonome); 			
 	cl=daocliente.update(cl);     	
 	DAO.commit();	
 	

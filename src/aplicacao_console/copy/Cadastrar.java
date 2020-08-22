@@ -23,7 +23,7 @@ public class Cadastrar {
 			Funcionario fun;
 			
 			System.out.println("cadastrando...");
-			cl=Fachada.cadastrarCliente("Clara 2 ", "880020", "ruaendereco", "clara@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Clara", "880020", "ruaendereco", "clara@gmail", "12312231");
 			System.out.println(cl);
 			
 			//cl=Fachada.cadastrarCliente("Joana", "1", "ruaendereco", "joana@gmail", "12312231");

@@ -1,30 +1,27 @@
 package aplicacao_console.copy;
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- *
- */
 
 
-import com.sun.tools.javac.util.List;
+
+//import com.sun.tools.javac.util.List;
 
 import fachada.Fachada;
-import modelo.Cliente;
-import modelo.Produto;
+//import modelo.Cliente;
+//import modelo.Produto;
 
 
 public class Atualizar {
 
 	public Atualizar(){
 		Fachada.inicializar();
-		Cliente cl;
-		Produto pro;
+		
+		//Cliente cl;
+		//Produto pro;
 		
 		try {
 			System.out.println("alterando...");
+			Fachada.AtualizarCliente("880020", "Helena");
 			
-            cl = Fachada.AtualizarCliente("Clara", "ruatal","222222","lll","hksahfk@j");
+            //cl = Fachada.AtualizarCliente("Clara", "ruatal","222222","lll","hksahfk@j");
 //
        //  	 String nnome = "Joana"; 
 //			 String ncpf = "12354";
@@ -32,9 +29,6 @@ public class Atualizar {
 //			 String nemail = "joana@gmail";
 //			 String ntelefone = "1458";
 //          	
-          	
-        
-          	
           	
           	
           	
