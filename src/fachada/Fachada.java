@@ -46,10 +46,10 @@ public class Fachada {
 					throws  Exception{
 		DAO.begin();	
 		Cliente cl = daocliente.read(cpf);
-		
+		System.out.print(cl);
 		if(cl != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
+			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + cpf);
 		}
 		 cl = new Cliente(
 				    cpf,
@@ -60,7 +60,7 @@ public class Fachada {
 		
 		daocliente.create(cl);
 		DAO.commit();
-		return cl;	
+		return (Cliente) cl;	
 		
 	}
 	
