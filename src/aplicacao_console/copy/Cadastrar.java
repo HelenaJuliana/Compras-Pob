@@ -24,7 +24,7 @@ public class Cadastrar {
 			
 			System.out.println("cadastrando...");
 			
-			cl=Fachada.cadastrarCliente("Ana", "111", "ruaendereco", "clara@gmail", "12312231");
+			cl=Fachada.cadastrarCliente("Juliana", "1110", "ruaendereco", "juliana@gmail", "12312231");
 			System.out.println(cl);
 			
 			//cl=Fachada.cadastrarCliente("Joana", "1", "ruaendereco", "joana@gmail", "12312231");

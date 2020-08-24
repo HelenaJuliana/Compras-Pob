@@ -22,8 +22,8 @@ public class Deletar {
 		
 		try {
 			System.out.println("deletando...");
-			Fachada.excluirCliente("881220");
-			Fachada.excluirProduto("1234");
+			Fachada.excluirCliente("111");
+			//Fachada.excluirProduto("1234");
 			
 			//Fachada.excluirFuncionario("1234");
 			

@@ -38,8 +38,8 @@ public class Fachada {
 	 **********************************************************/
 
  public static Cliente cadastrarCliente(
-		   String cpf,
-		   String nome, 
+		   String nome,
+		   String cpf, 
 		   String endereco,
 		   String telefone, 
 		   String email) 
@@ -49,18 +49,18 @@ public class Fachada {
 		System.out.print(cl);
 		if(cl != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + cpf);
+			throw new Exception("cadastrar cliente -\n cliente ja cadastrado:" + nome);
 		}
 		 cl = new Cliente(
-				    cpf,
-					nome,  
+				    nome,
+					cpf,  
 					endereco,
 					telefone,
 					email);
 		
 		daocliente.create(cl);
 		DAO.commit();
-		return (Cliente) cl;	
+		return  cl;	
 		
 	}
 	
