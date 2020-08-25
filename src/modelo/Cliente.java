@@ -1,10 +1,5 @@
 package modelo;
 
-import java.util.ArrayList;
-
-import modelo.Produto;
-
-
 
 public class Cliente {
 	
@@ -13,8 +8,7 @@ public class Cliente {
 	private String endereco;
 	private String telefone;
     private String email;
-    private ArrayList<Produto> produtos= new ArrayList<Produto>();
-    private ArrayList<Item> itens= new ArrayList<Item>();
+    
 	
 		public Cliente (String nome, 
 				String cpf, 
@@ -58,31 +52,7 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	public void adicionar(Produto p){
-		p.setCod(this);
-		this.produtos.add(p);
 
-	}
-
-	public void remover(Produto p){
-		p.setNome_produto(null);
-		this.produtos.remove(p);
-	}
-	
-	
-	public Produto localizar(Integer num){
-		for(Produto p : produtos) {
-			if (p.getNome_produto().equals(num))
-				return p;
-		}
-		return null;
-	}
-	
-	public ArrayList<Produto> getPedidos() {
-		return produtos;
-	}
 
 	@Override
 	public String toString() {

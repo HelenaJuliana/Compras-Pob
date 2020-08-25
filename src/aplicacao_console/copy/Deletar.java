@@ -1,31 +1,21 @@
 package aplicacao_console.copy;
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- *
- */
+
 
 import fachada.Fachada;
-import modelo.Cliente;
-import modelo.Funcionario;
-import modelo.Produto;
 
 
 public class Deletar {
 
 	public Deletar(){
 		Fachada.inicializar();
-		Cliente cl = null;
-		Funcionario fun = null;
-		Produto pro = null;
+	
 		
 		try {
 			System.out.println("deletando...");
-			Fachada.excluirCliente("111");
-			//Fachada.excluirProduto("1234");
+			//Fachada.excluirCliente("11103");
+			Fachada.excluirProduto("280");
 			
-			//Fachada.excluirFuncionario("1234");
+			//Fachada.excluirFuncionario("175");
 			
 			System.out.println("");
 

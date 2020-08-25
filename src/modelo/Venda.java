@@ -9,16 +9,16 @@ public class Venda {
 	
 	private String nome;
 	private String email;
-	private ArrayList<Item> itens1;
 	private Date data;
 	private float valor;
 	private String venda;
+	private ArrayList<Item> itens= new ArrayList<Item>();
 
 	Funcionario funcionario = new Funcionario("0120","marcia", "marcia@gmail");
 	Cliente cliente = new Cliente("Pedro","123.456.789-78","Rua blabla","pedro@gmail.com","124644");
     Item itens2 = new Item(1 ,"Vestido", 1, 50.0);
 
-	List<Item> itens = new ArrayList<Item>();
+	List<Item> itens1 = new ArrayList<Item>();
 	
 	public Venda(String venda ,String email) {
 		this.setVenda(venda);
@@ -43,7 +43,7 @@ public class Venda {
 	}
 
 	public ArrayList<Item> getItens1() {
-		return itens1;
+		return itens;
 	}
 
 	public void setItens1(ArrayList<Item> itens1) {

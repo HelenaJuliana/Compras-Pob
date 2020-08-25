@@ -46,7 +46,7 @@ public class Fachada {
 					throws  Exception{
 		DAO.begin();	
 		Cliente cl = daocliente.read(cpf);
-		System.out.print(cl);
+		
 		if(cl != null) {
 			DAO.rollback();
 			throw new Exception("cadastrar cliente -\n cliente ja cadastrado:" + nome);
@@ -72,9 +72,10 @@ public class Fachada {
 			throws  Exception{
 		DAO.begin();	
 		Produto pro = daoproduto.read(cod);
-		if(cod != null) {
+		
+		if(pro != null) {
 			DAO.rollback();
-			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome_produto);
+			throw new Exception("cadastrar produto - produto ja cadastrado: " + nome_produto);
 		}
 
 		
@@ -125,20 +126,48 @@ public class Fachada {
 		return texto;
 }
 
-  public static String consultartotalDeClientes() {
-	int clientes = daocliente.consultarTotalClientes();
-	return "\nTOTAL DE CLIENTES: " + clientes;
+  public static String consultarFuncionarioNome(String n) {
+		List<Funcionario> result = daofuncionario.consultarFuncionarioPorNome(n);
+		String texto = "\nCONSULTAR FUNCIONARIO " + n.toUpperCase() + ":";
+		if (result.isEmpty())  
+			texto += "consulta vazia";
+		else 
+			for(Funcionario t: result)texto += "\n" + t;
+		return texto;
+}
+  
+  public static String consultartotalDeFuncionarios() {
+	int funcionarios = daofuncionario.consultartotalDeFuncionarios();
+	return "\nTOTAL DE FUNCIONARIOS: \n " + funcionarios;
 	
 }
 
+  public static String consultartotalDeClientes() {
+	int clientes = daocliente.consultarTotalClientes();
+	return "\nTOTAL DE CLIENTES: \n " + clientes;
+	
+}
+
+
+  public static String consultarProdutoPorParteNome(String n) {
+		List<Produto> result = daoproduto.consultarProdutoPorParteNome(n);
+		String texto = "\nCONSULTAR Produto DE " + n.toUpperCase() + ":";
+		if (result.isEmpty())  
+			texto += "consulta vazia";
+		else 
+			for(Produto t: result)texto += "\n" + t;
+		return texto;
+}
+
+ 
 public static String consultartotalDeProdutos1() {
 	int produtos = daoproduto.consultarTotalProdutos();
-	return "TOTAL DE PRODUTOS: " + produtos;
+	return "\n TOTAL DE PRODUTOS:  " + produtos;
 	
 }
 public static String consultarPorProduto1(String n) {
 	List<Produto> result = daoproduto.consultarPorProduto(n);
-	String texto = "\nCONSULTAR  PRODUTOS " + n.toUpperCase() + ":";
+	String texto = "\nCONSULTAR  PRODUTOS  >> " + n.toUpperCase() + "':";
 	if (result.isEmpty())  
 		texto += "consulta vazia";
 	else 
@@ -177,7 +206,7 @@ public static String consultarPorProduto1(String n) {
 		return i;
 	}
 	
-//LISTAR TODOS OS clientes
+//LISTAR TODOS OS CLIENTES
 			public static String listarCliente() { 	
 				List<Cliente> aux = daocliente.readAll();
 				String texto="-----------listagem de Clientes---------\n";
@@ -225,10 +254,10 @@ public static String consultarPorProduto1(String n) {
 			
 			if (cl==null) {
 				DAO.rollback();
-				throw new Exception("excluir Cliente - cpf inexistente:" + cpf);
+				throw new Exception("excluir Cliente - cpf inexistente: " + cpf);
 			}
 			
-			System.out.println("deletando o cliente:" + cl.getNome());
+			System.out.println("deletando o cliente: " + cl.getNome());
 			daocliente.delete(cl);  //cascata
 			DAO.commit();
 		}
@@ -263,10 +292,13 @@ public static void excluirProduto(String cod) throws Exception {
 					DAO.commit();
 				}
 
-///// atualizar
+// Atualizar Cliente
 public static void AtualizarCliente(
+		String novonome,
 		String cpf,
-		String novonome
+		String endereco,
+		String email
+		
 		) 
 		throws Exception{
 	DAO.begin();		
@@ -274,12 +306,69 @@ public static void AtualizarCliente(
 	
 	if (cl==null) {
 		DAO.rollback();
-		throw new Exception( "Cliente" + cpf + " inexistente");
+		throw new Exception( "Cliente " + cpf + " inexistente ");
 	}
-	System.out.println("alterando o cliente:" + cpf);
+	System.out.println("alterando o cliente: " + novonome + "  cod: " + cpf);
 
-	cl.setNome(novonome); 			
+	cl.setNome(novonome);
+	cl.setCPF(cpf); 	
+	cl.setEndereco(endereco); 
+	cl.setEmail(email); 
 	cl=daocliente.update(cl);     	
+	DAO.commit();	
+	
+}
+
+// Atualizar Funcionário
+
+public static void AtualizarFuncionario(
+		String novonome,
+		String cpf,
+		String nemail
+		
+		) 
+		throws Exception{
+	DAO.begin();		
+	Funcionario fun = daofuncionario.read(cpf);	
+	
+	if (fun==null) {
+		DAO.rollback();
+		throw new Exception( "Funcionario " + cpf + " inexistente ");
+	}
+	System.out.println("alterando o cliente: " + novonome + "  cod: " + cpf);
+
+	fun.setNome(novonome);
+	fun.setCpf(cpf); 
+	fun.setEmail(nemail);
+	fun=daofuncionario.update(fun);     	
+	DAO.commit();	
+	
+}
+
+
+public static void AtualizarProduto(
+		String nome,
+		String cod,
+		int quant,
+		String descricao
+		
+		) 
+		throws Exception{
+	DAO.begin();		
+	Produto pro = daoproduto.read(cod);	
+	
+	if (pro==null) {
+		DAO.rollback();
+		throw new Exception( "Produto " + cod + " inexistente ");
+	}
+	System.out.println("alterando o produto: " + nome + "  cod: " + cod  );
+
+	pro.setNome_produto(nome);
+	//pro.setCod(cod); 	
+	pro.setQuant_estoq(quant); 
+	pro.setDescricao(descricao); 
+	
+	pro=daoproduto.update(pro);     	
 	DAO.commit();	
 	
 }

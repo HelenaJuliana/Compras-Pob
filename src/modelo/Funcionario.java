@@ -15,6 +15,18 @@ public class Funcionario {
 	
 	
 
+	public String getCpf() {
+		return cpf;
+	}
+
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
@@ -33,4 +45,8 @@ public class Funcionario {
 	public String toString() {
 		return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", email=" + email + "]";
 	}
+
+
+
+
 }

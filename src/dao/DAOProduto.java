@@ -1,6 +1,4 @@
-/**IFPB - Curso SI - Disciplina de POB
- * @author Prof Fausto Ayres
- */
+
 package dao;
 
 
@@ -8,6 +6,7 @@ import java.util.List;
 
 import com.db4o.query.Query;
 
+import modelo.Cliente;
 import modelo.Item;
 import modelo.Produto;
 
@@ -18,7 +17,7 @@ public class DAOProduto  extends DAO<Produto>{
 		
 		Query q = manager.query();
 		q.constrain(Produto.class);
-		q.descend("numero").constrain(cod);
+		q.descend("cod").constrain(cod);
 		List<Produto> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);
@@ -27,30 +26,6 @@ public class DAOProduto  extends DAO<Produto>{
 	}
 	
 	
-	
-	
-	/**********************************************************
-	 * 
-	 * TODAS AS CONSULTAS DE TELEFONE
-	 * 
-	 **********************************************************/
-//	public List<Telefone> consultarTelefonesPorPrefixo(String prefixo) {
-//		Query q = manager.query();
-//		q.constrain(Telefone.class);
-//		q.descend("numero").constrain(prefixo).startsWith(true);
-//		//q.descend("pessoa").descend("nome").orderDescending();
-//		List<Telefone> result = q.execute(); 
-//		return result;
-//	}
-//
-//	public List<Telefone> consultarTelefonesPorNome(String nome) {
-//		Query q = manager.query();
-//		q.constrain(Telefone.class);
-//		q.descend("pessoa").descend("nome").constrain(nome);
-//		List<Telefone> result = q.execute(); 
-//		return result;
-//	}
-
 	public int consultarTotalProdutos() {
 		Query q = manager.query();
 		q.constrain(Produto.class);
@@ -58,10 +33,17 @@ public class DAOProduto  extends DAO<Produto>{
 		return total;
 	}
 
+	public  List<Produto> consultarProdutoPorParteNome(String caracteres) {
+		Query q = manager.query();
+		q.constrain(Produto.class);
+		q.descend("nome_produto").constrain(caracteres).like();
+		List<Produto> result = q.execute(); 
+		return result;
+	}
 	public List<Produto> consultarPorProduto(String n){
 		Query q = manager.query();
 		q.constrain(Produto.class);
-		q.descend("itens").descend("produto").descend("nomeProduto").constrain(n).like();
+		q.descend("produto").descend("produto").descend("nomeProduto").constrain(n).like();
 		List<Produto> resultados = q.execute();
 		if(resultados.size()==0)
 			return null;
@@ -70,6 +52,7 @@ public class DAOProduto  extends DAO<Produto>{
 
 	}
 
+	
 
 	
 
