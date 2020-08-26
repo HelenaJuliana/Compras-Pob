@@ -165,6 +165,7 @@ public static String consultartotalDeProdutos1() {
 	return "\n TOTAL DE PRODUTOS:  " + produtos;
 	
 }
+
 public static String consultarPorProduto1(String n) {
 	List<Produto> result = daoproduto.consultarPorProduto(n);
 	String texto = "\nCONSULTAR  PRODUTOS  >> " + n.toUpperCase() + "':";
@@ -175,6 +176,10 @@ public static String consultarPorProduto1(String n) {
 	return texto;
 }
 
+public static String consultarTotalItens() {
+	int iten = daoitens.consultarTotalProdutos();
+	return "TOTAL DE ITENS: " + iten;
+}
 	
 	/**********************************************************
 	 *  SELECIONAR
@@ -372,6 +377,8 @@ public static void AtualizarProduto(
 	DAO.commit();	
 	
 }
+
+
 }
 		
 		

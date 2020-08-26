@@ -58,6 +58,7 @@ public class Venda {
 		this.data = data;
 	}
 
+	
 	public float getValor() {
 		return valor;
 	}
@@ -73,5 +74,43 @@ public class Venda {
 	public void setVenda(String venda) {
 		this.venda = venda;
 	}
+
+	public ArrayList<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(ArrayList<Item> itens) {
+		this.itens = itens;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Item getItens2() {
+		return itens2;
+	}
+
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Venda [nome=" + nome + ", email=" + email + ", data=" + data + ", valor=" + valor + ", venda=" + venda
+				+ ", itens=" + itens + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
+	}
+
 
 }

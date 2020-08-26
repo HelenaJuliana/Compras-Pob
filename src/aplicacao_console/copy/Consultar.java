@@ -17,7 +17,8 @@ public class Consultar {
 			System.out.println(Fachada.consultartotalDeProdutos1());
 			System.out.println(Fachada.consultarFuncionarioNome("Helen"));
 			System.out.println(Fachada.consultartotalDeFuncionarios());
-//			System.out.println(Fachada.consultartotalDeItens());
+			System.out.println(Fachada.consultarTotalItens());
+	
 			 
 		
 

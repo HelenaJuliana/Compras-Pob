@@ -10,6 +10,7 @@ public class Produto{
 	private int quant_estoq;
 	private String  descricao;
     private ArrayList<Produto> produtos= new ArrayList<Produto>();
+	private Object itens;
 
 	
 	public Produto(
@@ -63,11 +64,6 @@ public class Produto{
 		this.descricao = descricao;
 	}
 
-	public void adicionar(Item i) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	
 	public void adicionar(Produto p){
 		p.setCod(this,cod);
@@ -93,11 +89,20 @@ public class Produto{
 		return produtos;
 	}
 
-
+	
 	@Override
 	public String toString() {
 		return "Produto [cod= " + cod + ", nome= " + nome_produto + ", Quantidade= " + quant_estoq
 				+ ", descricao= " + descricao + "]";
+	}
+
+
+	public void adicionar(Item i) {
+//		i.setCod(this,cod);
+//		this.itens.add(i);
+
+		
+		
 	}
 
 }

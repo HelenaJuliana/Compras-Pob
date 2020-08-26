@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Item {
 	
 
@@ -7,9 +9,14 @@ public class Item {
 	private Produto nome_produto;
 	private int quant;
 	private Produto valor;
+	 private ArrayList<Item> itens= new ArrayList<Item>();
 	
-	//contrutor de Itens
-	public Item ( int cod_Iten ,Produto pr, int quant,Produto pro) {
+	public Item ( 
+			int cod_Iten ,
+			Produto pr, 
+			int quant,
+			Produto pro) {
+		
 		this.setCod(cod_Iten);
 		this.setNome_produto(pr);
 		this.setQuant(quant);
@@ -18,7 +25,15 @@ public class Item {
 		
 	}
 	
-//construtor do modelo venda no novo objeto em itens 
+public ArrayList<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(ArrayList<Item> itens) {
+		this.itens = itens;
+	}
+
+	//construtor do modelo venda no novo objeto em itens 
 	public Item(int cod2, String string, int quant2, double d) {
 		this.setCod(cod_Iten);
 		Produto pe = null;
@@ -65,10 +80,20 @@ public class Item {
 		this.valor = pro;
 	}
 	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Item [cod=" + cod_Iten + ", nome_produto=" + nome_produto + ", quant=" + quant + ", valor=" + valor + "]";
 	}
+
+	public void setCod(Produto produto, String cod) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 
 

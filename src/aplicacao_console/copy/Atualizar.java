@@ -12,7 +12,7 @@ public class Atualizar {
 		
 		try {
 			System.out.println("alterando...");
-			//Fachada.AtualizarCliente("Helenn J","880020","rua tal 1","helen@gmail.com");
+			Fachada.AtualizarCliente("Helenn J","880020","rua tal 1","helen@gmail.com");
 			
 			//Fachada.AtualizarFuncionario("Helen jk ","17115","helenjk@gmail.com");
 			
