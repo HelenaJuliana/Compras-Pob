@@ -12,7 +12,7 @@ public class Deletar {
 		
 		try {
 			System.out.println("deletando...");
-			Fachada.excluirCliente("410001");
+			Fachada.excluirCliente("880020");
 			//Fachada.excluirProduto("280");
 			
 			//Fachada.excluirFuncionario("175");

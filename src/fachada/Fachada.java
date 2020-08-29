@@ -1,14 +1,18 @@
 
 package fachada;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
 
 import dao.DAO;
 import dao.DAOCliente;
 import dao.DAOFuncionario;
 import dao.DAOItens;
 import dao.DAOProduto;
+import dao.DAOVenda;
 import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Item;
@@ -20,6 +24,7 @@ public class Fachada {
 	private static DAOCliente daocliente = new DAOCliente();  
 	private static DAOFuncionario daofuncionario = new DAOFuncionario();  
 	private static DAOProduto daoproduto = new DAOProduto();
+	private static DAOVenda daovenda = new DAOVenda();
 	private static DAOProduto daoitens = new DAOItens();
 	private static Object codigoProduto; 
 	
@@ -66,7 +71,8 @@ public class Fachada {
 	
  public static Produto  cadastrarProdutos(
 		    String cod, 
-        	String nome_produto, 
+        	String nome_produto,
+        	double preco,
         	int quant_estoq, 
         	String descricao) 
 			throws  Exception{
@@ -81,7 +87,8 @@ public class Fachada {
 		
 		pro = new Produto( 
 			cod, 
-		    nome_produto, 
+		    nome_produto,
+		    preco,
 			quant_estoq,  
 			descricao);
 		daoproduto.create(pro);	
@@ -221,10 +228,10 @@ public static String consultarTotalItens() {
 				return texto;
 			}
 			
-			
+
 			public static String listarFuncionario(){
 				List<Funcionario> funcionarios = daofuncionario.readAll();
-				String texto="-----------listagem de Funcionarios-----------\n";
+				String texto="\n-----------listagem de Funcionarios-----------\n";
 				for (Funcionario a : funcionarios) {
 					texto += a +"\n";
 				}
@@ -242,15 +249,7 @@ public static String consultarTotalItens() {
 			}
 			
 	
-//LISTAR TODOS OS ITENS
-	public static String listarItem() {
-		List<Produto> aux = daoitens.readAll();
-		String texto="-----------listagem de Pedidos---------\n";
-		for(Produto t: aux) {
-			texto += "\n" + t; 
-		}
-		return texto;
-	}
+
 		
 //EXCLUINDO CLIENTE
 		public static void excluirCliente(String cpf) throws Exception {
@@ -379,7 +378,58 @@ public static void AtualizarProduto(
 }
 
 
+public static String consultarVendas(String n) {
+	List<Venda> result = daovenda.consultarVendas(n);
+
+	String texto = "\nCONSULTAR VENDAS COM "+n+" PRODUTOS:";
+	if (result.isEmpty())  
+		texto += "consulta vazia";
+	else 
+		for(Venda v: result)texto += "\n" + v;
+	return texto;
 }
+
+//dando erro
+//
+//public static Venda cadastrarVenda (
+//		String codV,
+//		String fun, 
+//		String cl, 
+//		String date, 
+//		double valor 
+//		) 
+//	
+//		throws  Exception{
+//	DAO.begin();	
+//	Venda v = daovenda.read(codV);
+//	
+//	if(v != null) {
+//		DAO.rollback();
+//		throw new Exception("cadastrar produto - produto ja cadastrado: " );
+//	}
+//
+//	
+//	v = new Venda(
+//		codV,
+//		fun, 
+//	    cl, 
+//		date,  
+//		valor
+//		);
+//	daovenda.create(v);	
+//	DAO.commit();
+//	return v;
+//}
+//
+
+
+	}
+
+
+	
+	
+
+
 		
 		
 	

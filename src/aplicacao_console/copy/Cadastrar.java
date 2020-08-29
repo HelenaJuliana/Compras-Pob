@@ -6,6 +6,7 @@ import fachada.Fachada;
 import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Produto;
+import modelo.Venda;
 
 
 public class Cadastrar {
@@ -16,6 +17,8 @@ public class Cadastrar {
 			Cliente cl;
 			Produto pro;
 			Funcionario fun;
+			Venda v;
+			
 			
 			System.out.println("cadastrando...");
 			
@@ -23,11 +26,16 @@ public class Cadastrar {
 			
 			//System.out.println(cl);
 			
-//			pro= Fachada.cadastrarProdutos("22", "Vestido 2 ", 11, "Preto e branco  etc");
-//			System.out.println(pro);
+			//dando erro
+//			v = Fachada.cadastrarVenda("1","Helen jk","Barto","20/02/2020",20.00);
+//			System.out.println(v);
 			
-			 fun= Fachada.cadastrarFuncionario("171115","Maria 1", "mariavendas@gmail.com");
-			 System.out.println(fun);
+			
+			pro= Fachada.cadastrarProdutos("202", "Vestido 2 ",20.00, 11, "Preto e branco  etc");
+			System.out.println(pro);
+			
+			 //fun= Fachada.cadastrarFuncionario("171145","Maria 2", "mariavendas@gmail.com");
+			 //System.out.println(fun);
          	
 		} catch (Exception e) 	{
 			System.out.println(e.getMessage());
@@ -36,7 +44,7 @@ public class Cadastrar {
 			Fachada.finalizar();
 		}
 
-		System.out.println("fim do programa");
+		System.out.println("\nfim do programa");
 	}
 
 

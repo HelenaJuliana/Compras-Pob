@@ -9,6 +9,7 @@ import com.db4o.query.Query;
 import modelo.Cliente;
 import modelo.Item;
 import modelo.Produto;
+import modelo.Venda;
 
 public class DAOProduto  extends DAO<Produto>{
 	//cod é campo único 
@@ -51,9 +52,6 @@ public class DAOProduto  extends DAO<Produto>{
 			return resultados;
 
 	}
-
-
-	
 
 	
 

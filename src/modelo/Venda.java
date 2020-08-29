@@ -5,112 +5,83 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class Venda {
-	
-	private String nome;
-	private String email;
+	private String codV;
+	private Funcionario funcionario;
+	private Cliente cliente;
 	private Date data;
 	private float valor;
-	private String venda;
 	private ArrayList<Item> itens= new ArrayList<Item>();
-
-	Funcionario funcionario = new Funcionario("0120","marcia", "marcia@gmail");
-	Cliente cliente = new Cliente("Pedro","123.456.789-78","Rua blabla","pedro@gmail.com","124644");
-    Item itens2 = new Item(1 ,"Vestido", 1, 50.0);
-
-	List<Item> itens1 = new ArrayList<Item>();
 	
-	public Venda(String venda ,String email) {
-		this.setVenda(venda);
-		this.setEmail(email);
-                setItens1(new ArrayList<Item>());
-	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public ArrayList<Item> getItens1() {
-		return itens;
-	}
-
-	public void setItens1(ArrayList<Item> itens1) {
-		this.itens1 = itens1;
-	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
+	public Venda(
+			String codV,
+			Funcionario fun,
+			Cliente cl,
+			Date data,
+			float valor
+			) {
+		super();
+		this.funcionario= fun;
+		this.cliente = cl;
 		this.data = data;
-	}
-
-	
-	public float getValor() {
-		return valor;
-	}
-
-	public void setValor(float valor) {
 		this.valor = valor;
+		
 	}
 
-	public String getVenda() {
-		return venda;
-	}
-
-	public void setVenda(String venda) {
-		this.venda = venda;
-	}
-
-	public ArrayList<Item> getItens() {
-		return itens;
-	}
-
-	public void setItens(ArrayList<Item> itens) {
-		this.itens = itens;
+	public Venda(String codV2, String fun, String cl, String date, double valor2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-
+	
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
-
+	
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
-	public Item getItens2() {
-		return itens2;
+	
+	public Date getData() {
+		return data;
+	}
+	
+	public void setData(Date data) {
+		this.data = data;
+	}
+	
+	public float getValor() {
+		return valor;
+	}
+	
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+	
+	public ArrayList<Item> getItens() {
+		return itens;
+	}
+	
+	public void setItens(ArrayList<Item> itens) {
+		this.itens = itens;
 	}
 
-	
-	
-	
 	@Override
 	public String toString() {
-		return "Venda [nome=" + nome + ", email=" + email + ", data=" + data + ", valor=" + valor + ", venda=" + venda
-				+ ", itens=" + itens + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
+		return "Venda [funcionario=" + funcionario + ", cliente=" + cliente + ", data=" + data + ", valor=" + valor
+				+ ", itens=" + itens + "]";
 	}
 
+	
 
+
+	
 }

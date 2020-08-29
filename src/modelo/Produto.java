@@ -7,20 +7,24 @@ public class Produto{
 	
 	private String cod;
 	private String nome_produto;
+	private double preco;
 	private int quant_estoq;
 	private String  descricao;
     private ArrayList<Produto> produtos= new ArrayList<Produto>();
 	private Object itens;
+	
 
 	
 	public Produto(
 			String cod, 
-			String nome_produto, 
+			String nome_produto,
+			double preco,
 			int quant_estoq, 
 			String descricao) {
 		
        this.cod = cod;
        this.nome_produto = nome_produto;
+       this.preco = preco;
        this.quant_estoq = quant_estoq;
        this.descricao = descricao;
 	
@@ -90,10 +94,12 @@ public class Produto{
 	}
 
 	
+	
+
 	@Override
 	public String toString() {
-		return "Produto [cod= " + cod + ", nome= " + nome_produto + ", Quantidade= " + quant_estoq
-				+ ", descricao= " + descricao + "]";
+		return "Produto [cod=" + cod + ", nome=" + nome_produto + ", preco=" + preco + ", quantidade="
+				+ quant_estoq + ", descricao= " + descricao ;
 	}
 
 

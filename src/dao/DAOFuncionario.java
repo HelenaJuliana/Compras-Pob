@@ -6,6 +6,7 @@ import com.db4o.query.Query;
 
 import modelo.Cliente;
 import modelo.Funcionario;
+import modelo.Venda;
 
 public class DAOFuncionario  extends DAO<Funcionario>{
 
@@ -71,6 +72,9 @@ public class DAOFuncionario  extends DAO<Funcionario>{
 		int total = q.execute().size(); 
 		return total;
 	}
+
+
+	
 
 
 	

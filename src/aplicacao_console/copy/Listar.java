@@ -16,7 +16,7 @@ public class Listar {
 			System.out.println(e.getMessage());
 		}
 		Fachada.finalizar();
-		System.out.println("fim do programa");
+		System.out.println("\nfim do programa");
 	}
 
 
