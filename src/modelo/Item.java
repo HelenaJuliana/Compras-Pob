@@ -9,7 +9,6 @@ public class Item {
 	private Produto nome_produto;
 	private int quant;
 	private Produto valor;
-	 private ArrayList<Item> itens= new ArrayList<Item>();
 	
 	public Item ( 
 			int cod_Iten ,
@@ -21,26 +20,14 @@ public class Item {
 		this.setNome_produto(pr);
 		this.setQuant(quant);
 		this.setValor(pro); 
-		
-		
+			
 	}
 	
-public ArrayList<Item> getItens() {
-		return itens;
-	}
-
-	public void setItens(ArrayList<Item> itens) {
-		this.itens = itens;
-	}
-
-	//construtor do modelo venda no novo objeto em itens 
 	public Item(int cod2, String string, int quant2, double d) {
 		this.setCod(cod_Iten);
-		Produto pe = null;
 		Produto pro = null;
-		this.setNome_produto(pe);
+		this.setNome_produto(pro);
 		this.setQuant(quant);
-		
 		this.setValor(pro); 
 	}
 
@@ -81,8 +68,6 @@ public ArrayList<Item> getItens() {
 	}
 	
 	
-	
-	
 	@Override
 	public String toString() {
 		return "Item [cod=" + cod_Iten + ", nome_produto=" + nome_produto + ", quant=" + quant + ", valor=" + valor + "]";
@@ -94,9 +79,6 @@ public ArrayList<Item> getItens() {
 	}
 
 	
-
-
-
 }
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import com.db4o.query.Query;
 
 import modelo.Item;
+import modelo.Produto;
 
 public class DAOItens extends DAOProduto {
 	
@@ -39,9 +40,12 @@ public class DAOPedidoItem extends DAO<Item>{
 	}
 
 
-	public void create(Item obj) {
-		// TODO Auto-generated method stub
-		
+	public  List<Item> consultarItem(String caracteres) {
+		Query q = manager.query();
+		q.constrain(Item.class);
+		q.descend("nome_produto").constrain(caracteres).like();
+		List<Item> result = q.execute(); 
+		return result;
 	}
 
 

@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Venda {
 	private String codV;
-	private Funcionario funcionario;
-	private Cliente cliente;
+	private Funcionario cpf;
+	private Cliente nome;
 	private Date data;
 	private float valor;
 	private ArrayList<Item> itens= new ArrayList<Item>();
@@ -23,11 +23,20 @@ public class Venda {
 			float valor
 			) {
 		super();
-		this.funcionario= fun;
-		this.cliente = cl;
-		this.data = data;
-		this.valor = valor;
+		this.setCodV(codV);
+		this.setFuncionario(fun);
+		this.setCliente(cl);
+		this.setData(data);
+		this.setValor(valor); 
 		
+	}
+
+	public String getCodV() {
+		return codV;
+	}
+
+	public void setCodV(String codV) {
+		this.codV = codV;
 	}
 
 	public Venda(String codV2, String fun, String cl, String date, double valor2) {
@@ -35,19 +44,19 @@ public class Venda {
 	}
 
 	public Funcionario getFuncionario() {
-		return funcionario;
+		return cpf;
 	}
 	
 	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+		this.cpf = funcionario;
 	}
 	
 	public Cliente getCliente() {
-		return cliente;
+		return nome;
 	}
 	
 	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+		this.nome = cliente;
 	}
 	
 	public Date getData() {
@@ -76,10 +85,11 @@ public class Venda {
 
 	@Override
 	public String toString() {
-		return "Venda [funcionario=" + funcionario + ", cliente=" + cliente + ", data=" + data + ", valor=" + valor
+		return "Venda [codV=" + codV + ", cpf=" + cpf + ", nome=" + nome + ", data=" + data + ", valor=" + valor
 				+ ", itens=" + itens + "]";
 	}
 
+	
 	
 
 

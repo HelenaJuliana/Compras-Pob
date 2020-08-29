@@ -74,6 +74,20 @@ public class DAOFuncionario  extends DAO<Funcionario>{
 	}
 
 
+	public List<Funcionario> consultarVendas(String n) {
+		Query q = manager.query();
+		q.constrain(Funcionario.class);
+		q.descend("cpf").constrain(n).like();
+		List<Funcionario> resultados = q.execute();
+		if(resultados.size()==0)
+			return null;
+		else
+			return resultados;
+	}
+
+
+	
+
 	
 
 

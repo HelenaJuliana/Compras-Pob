@@ -14,11 +14,13 @@ public class Consultar {
 			System.out.print(Fachada.consultartotalDeClientes());
 //			System.out.println(Fachada.consultarClientesNPedidos(5) );
      		System.out.println(Fachada.consultarProdutoPorParteNome("Ja"));
+     		System.out.println(Fachada.consultarItem("Cal"));
+
 			System.out.println(Fachada.consultartotalDeProdutos1());
 			System.out.println(Fachada.consultarFuncionarioNome("Helen"));
 			System.out.println(Fachada.consultartotalDeFuncionarios());
 			System.out.println(Fachada.consultarTotalItens());
-			System.out.println(Fachada.consultarVendas("Jaqueta"));
+			System.out.println(Fachada.consultarVendas("1234"));
 	
 			 
 		

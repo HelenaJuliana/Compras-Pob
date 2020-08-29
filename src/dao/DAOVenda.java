@@ -27,26 +27,18 @@ public class DAOVenda  extends DAO<Venda>{
 			return null;
 	}
 	
-	public List<Venda> consultarVendas(String n){
-		Query q = manager.query();
-		q.constrain(Venda.class);
-		q.descend("venda").descend("venda").descend("nome").constrain(n).like();
-		List<Venda> resultados = q.execute();
-		if(resultados.size()==0)
-			return null;
-		else
-			return resultados;
-
-	}
-
-
-	public void create(Venda v) {
-		// TODO Auto-generated method stub
-		
-	}
-
+//	public List<Venda> consultarVendas(String n){
+//		Query q = manager.query();
+//		q.constrain(Venda.class);
+//		q.descend("cpf").descend("cpf").descend("cpf").constrain(n).like();
+//		List<Venda> resultados = q.execute();
+//		if(resultados.size()==0)
+//			return null;
+//		else
+//			return resultados;
+//
+//	}
 	
 
-	
 
 }

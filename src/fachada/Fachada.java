@@ -166,6 +166,18 @@ public class Fachada {
 		return texto;
 }
 
+  
+ //consultar item
+  
+  public static String consultarItem(String n) {
+		List<Produto> result = daoitens.consultarItem(n);
+		String texto = "\nCONSULTAR ITENS DE " + n.toUpperCase() + ":";
+		if (result.isEmpty())  
+			texto += "consulta vazia";
+		else 
+			for(Produto t: result)texto += "\n" + t;
+		return texto;
+}
  
 public static String consultartotalDeProdutos1() {
 	int produtos = daoproduto.consultarTotalProdutos();
@@ -377,50 +389,17 @@ public static void AtualizarProduto(
 	
 }
 
-
+//obs ainda não funciona,só tá voltando o nome do funcionário e do cliente e seu email
 public static String consultarVendas(String n) {
-	List<Venda> result = daovenda.consultarVendas(n);
+	List<Funcionario> result = daofuncionario.consultarVendas(n);
 
 	String texto = "\nCONSULTAR VENDAS COM "+n+" PRODUTOS:";
 	if (result.isEmpty())  
 		texto += "consulta vazia";
 	else 
-		for(Venda v: result)texto += "\n" + v;
+		for(Funcionario t: result)texto += "\n" + t;
 	return texto;
 }
-
-//dando erro
-//
-//public static Venda cadastrarVenda (
-//		String codV,
-//		String fun, 
-//		String cl, 
-//		String date, 
-//		double valor 
-//		) 
-//	
-//		throws  Exception{
-//	DAO.begin();	
-//	Venda v = daovenda.read(codV);
-//	
-//	if(v != null) {
-//		DAO.rollback();
-//		throw new Exception("cadastrar produto - produto ja cadastrado: " );
-//	}
-//
-//	
-//	v = new Venda(
-//		codV,
-//		fun, 
-//	    cl, 
-//		date,  
-//		valor
-//		);
-//	daovenda.create(v);	
-//	DAO.commit();
-//	return v;
-//}
-//
 
 
 	}
