@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.db4o.query.Query;
 
+import modelo.Funcionario;
 import modelo.Item;
 import modelo.Produto;
 
@@ -48,7 +49,24 @@ public class DAOPedidoItem extends DAO<Item>{
 		return result;
 	}
 
-
+	public List<Item> consultarVendas(String n) {
+		Query q = manager.query();
+		q.constrain(Item.class);
+		q.descend("cpf").constrain(n).like();
+		List<Item> resultados = q.execute();
+		if(resultados.size()==0)
+			return null;
+		else
+			return resultados;
+	}
+	
+	public List<Produto> consultaVenda(String n) {
+		Query q = manager.query();
+		q.constrain(Produto.class);
+		q.descend("nome_produto").constrain(n).like();
+		List<Produto> result = q.execute(); 
+		return result;
+	}
 }
 }
 

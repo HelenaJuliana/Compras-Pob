@@ -63,7 +63,14 @@ public class DAOProduto  extends DAO<Produto>{
 	}
 
 
-
 	
+
+	public List<Produto> consultarVendas(String n) {
+		Query q = manager.query();
+		q.constrain(Produto.class);
+		q.descend("nome_produto").constrain(n).like();
+		List<Produto> result = q.execute(); 
+		return result;
+	}
 
 }

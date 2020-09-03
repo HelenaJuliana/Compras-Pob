@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import dao.DAO;
 import dao.DAOCliente;
 import dao.DAOFuncionario;
@@ -391,18 +392,50 @@ public static void AtualizarProduto(
 
 //obs ainda não funciona,só tá voltando o nome do funcionário e do cliente e seu email
 public static String consultarVendas(String n) {
-	List<Funcionario> result = daofuncionario.consultarVendas(n);
+	List<Produto> result = daoproduto.consultarVendas(n);
 
 	String texto = "\nCONSULTAR VENDAS COM "+n+" PRODUTOS:";
 	if (result.isEmpty())  
 		texto += "consulta vazia";
 	else 
-		for(Funcionario t: result)texto += "\n" + t;
+		for(Produto t: result)texto += "\n" + t;
 	return texto;
 }
 
-
+public static Venda CadastrarVenda(
+		
+		 String codV,
+		Funcionario cpf,
+		 Cliente nome,
+		Date data,
+		 double valor) 
+		throws  Exception{
+	DAO.begin();	
+	Venda v = daovenda.read(codV);
+	
+	if(v == null) {
+		DAO.rollback();
+		throw new Exception("cadastrar venda - venda ja cadastrado: " + cpf + nome);
 	}
+	//Formatando string para data
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate Date = LocalDate.parse((CharSequence) data, format);
+	
+	v = new Venda( 
+			codV,
+			cpf,
+			 nome,
+			 data,
+			 valor);
+	daovenda.create(v);	
+	DAO.commit();
+	return v;
+}
+
+	
+
+
+}
 
 
 	

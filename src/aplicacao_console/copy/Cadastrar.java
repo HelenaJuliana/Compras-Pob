@@ -27,13 +27,13 @@ public class Cadastrar {
 			//System.out.println(cl);
 			
 			//dando erro
-//			v = Fachada.cadastrarVenda("1","Helen jk","Barto","20/02/2020",20.00);
-//			System.out.println(v);
+		v = Fachada.CadastrarVenda("1","17115","Barto","20/02/2020",20.00);
+		System.out.println(v);
 			
 			
-			pro= Fachada.cadastrarProdutos("202", "Vestido 2 ",20.00, 11, "Preto e branco  etc");
-			System.out.println(pro);
-			
+//			pro= Fachada.cadastrarProdutos("202", "Vestido 2 ",20.00, 11, "Preto e branco  etc");
+//			System.out.println(pro);
+//			
 			 //fun= Fachada.cadastrarFuncionario("171145","Maria 2", "mariavendas@gmail.com");
 			 //System.out.println(fun);
          	

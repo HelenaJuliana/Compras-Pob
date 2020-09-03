@@ -6,30 +6,46 @@ import java.util.Date;
 import java.util.List;
 
 
+
 public class Venda {
 	private String codV;
 	private Funcionario cpf;
 	private Cliente nome;
 	private Date data;
-	private float valor;
+	private double valor;
 	private ArrayList<Item> itens= new ArrayList<Item>();
 	
 
 	public Venda(
 			String codV,
-			Funcionario fun,
-			Cliente cl,
+			Funcionario cpf,
+			 Cliente nome,
 			Date data,
-			float valor
+			 double valor
 			) {
 		super();
-		this.setCodV(codV);
-		this.setFuncionario(fun);
-		this.setCliente(cl);
-		this.setData(data);
-		this.setValor(valor); 
+		this.codV = codV;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.data = data;
+		this.valor= valor; 
 		
 	}
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
 
 	public String getCodV() {
 		return codV;
@@ -39,10 +55,7 @@ public class Venda {
 		this.codV = codV;
 	}
 
-	public Venda(String codV2, String fun, String cl, String date, double valor2) {
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	public Funcionario getFuncionario() {
 		return cpf;
 	}
@@ -67,11 +80,11 @@ public class Venda {
 		this.data = data;
 	}
 	
-	public float getValor() {
+	public double getValor() {
 		return valor;
 	}
 	
-	public void setValor(float valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	
@@ -83,6 +96,17 @@ public class Venda {
 		this.itens = itens;
 	}
 
+//	public void adicionar(Item it){
+//		it.setVenda(this);
+//		this.itens.add(it);
+//	}
+
+//	public void remover(PedidoItem p){
+//		p.setPedido(null);
+//		this.itens.remove(p);
+//	}
+	
+	
 	@Override
 	public String toString() {
 		return "Venda [codV=" + codV + ", cpf=" + cpf + ", nome=" + nome + ", data=" + data + ", valor=" + valor
