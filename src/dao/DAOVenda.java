@@ -26,7 +26,7 @@ public class DAOVenda  extends DAO<Venda>{
 		else
 			return null;
 	}
-	
+//	
 //	public List<Venda> consultarVendas(String n){
 //		Query q = manager.query();
 //		q.constrain(Venda.class);

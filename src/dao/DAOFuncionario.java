@@ -6,6 +6,7 @@ import com.db4o.query.Query;
 
 import modelo.Cliente;
 import modelo.Funcionario;
+import modelo.Produto;
 import modelo.Venda;
 
 public class DAOFuncionario  extends DAO<Funcionario>{
@@ -72,6 +73,18 @@ public class DAOFuncionario  extends DAO<Funcionario>{
 		int total = q.execute().size(); 
 		return total;
 	}
+
+
+	public List<Funcionario> consultarVendas(String cpf) {
+		Query q = manager.query();
+		q.constrain(Funcionario.class);
+		q.descend("cpf").constrain(cpf).like();
+		List<Funcionario> result = q.execute(); 
+		return result;
+	}
+
+
+	
 
 
 

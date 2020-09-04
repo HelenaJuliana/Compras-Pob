@@ -2,11 +2,13 @@
 package dao;
 
 
+import java.util.Date;
 import java.util.List;
 
 import com.db4o.query.Query;
 
 import modelo.Cliente;
+import modelo.Funcionario;
 import modelo.Item;
 import modelo.Produto;
 import modelo.Venda;
@@ -73,4 +75,6 @@ public class DAOProduto  extends DAO<Produto>{
 		return result;
 	}
 
+
+	
 }

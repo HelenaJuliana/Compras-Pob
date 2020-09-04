@@ -2,6 +2,7 @@ package aplicacao_console.copy;
 
 
 
+
 import fachada.Fachada;
 import modelo.Cliente;
 import modelo.Funcionario;
@@ -14,9 +15,9 @@ public class Cadastrar {
 	public Cadastrar(){
 		try {
 			Fachada.inicializar();
-			Cliente cl;
+			Cliente cl = null;
 			Produto pro;
-			Funcionario fun;
+			Funcionario fun = null;
 			Venda v;
 			
 			
@@ -27,9 +28,9 @@ public class Cadastrar {
 			//System.out.println(cl);
 			
 			//dando erro
-		v = Fachada.CadastrarVenda("1","17115","Barto","20/02/2020",20.00);
+		v = Fachada.CadastrarVendas("20","17115","Ana","04/09/2020",20.00);
 		System.out.println(v);
-			
+//			
 			
 //			pro= Fachada.cadastrarProdutos("202", "Vestido 2 ",20.00, 11, "Preto e branco  etc");
 //			System.out.println(pro);

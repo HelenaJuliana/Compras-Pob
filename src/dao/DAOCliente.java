@@ -83,6 +83,15 @@ public class DAOCliente  extends DAO<Cliente>{
 	}
 
 
+	public List<Cliente> consultarVendas(String nome) {
+		Query q = manager.query();
+		q.constrain(Funcionario.class);
+		q.descend("cpf").constrain(nome).like();
+		List<Cliente> result = q.execute(); 
+		return result;
+	}
+
+
 	
 }
 

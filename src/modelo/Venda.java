@@ -1,49 +1,52 @@
 package modelo;
 
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-
+import modelo.Produto;
+import modelo.Funcionario;
 
 public class Venda {
 	private String codV;
 	private Funcionario cpf;
 	private Cliente nome;
-	private Date data;
-	private double valor;
-	private ArrayList<Item> itens= new ArrayList<Item>();
+	private LocalDate data;
+	private double valor2;
+	private ArrayList<Item> produtos= new ArrayList<Item>();
+	
 	
 
 	public Venda(
 			String codV,
 			Funcionario cpf,
-			 Cliente nome,
-			Date data,
-			 double valor
+			Cliente nome,
+			LocalDate data,
+			double valor2
 			) {
 		super();
 		this.codV = codV;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.data = data;
-		this.valor= valor; 
+		this.valor2 = valor2;
+		 
 		
 	}
 
-
-
-
-
-	
-
-
-
-
-
-
-
+	public Venda(
+			String codV2,
+			String cpf2, 
+			String nome2, 
+			LocalDate data, 
+			double valor) {
+		super();
+		this.codV = codV;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.data = data;
+		this.valor2 = valor2;
+	}
 
 
 
@@ -72,50 +75,40 @@ public class Venda {
 		this.nome = cliente;
 	}
 	
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 	
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 	
 	public double getValor() {
-		return valor;
+		return valor2;
 	}
 	
-	public void setValor(double valor) {
-		this.valor = valor;
+	public void setValor(float valor) {
+		this.valor2 = valor;
 	}
 	
-	public ArrayList<Item> getItens() {
-		return itens;
-	}
 	
-	public void setItens(ArrayList<Item> itens) {
-		this.itens = itens;
-	}
 
-//	public void adicionar(Item it){
-//		it.setVenda(this);
-//		this.itens.add(it);
-//	}
-
-//	public void remover(PedidoItem p){
-//		p.setPedido(null);
-//		this.itens.remove(p);
-//	}
-	
-	
 	@Override
 	public String toString() {
-		return "Venda [codV=" + codV + ", cpf=" + cpf + ", nome=" + nome + ", data=" + data + ", valor=" + valor
-				+ ", itens=" + itens + "]";
+		String classe = getClass().getSimpleName() + ":";
+		String texto =  String.format("%5s", classe)      + 
+				" Cod = " + String.format("%5s",codV)+
+				" Funcionario = " + String.format("%5s",cpf)+
+				", Cliente = " + String.format("%5s",nome)        +
+				", data = " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+
+				", Preço = " + String.format("%5s",valor2);
+		
+
+		texto += ", produtos:";
+		for(Item p : produtos)
+			texto+= p.getCod() + ", ";
+
+		return texto;
 	}
-
-	
-	
-
-
-	
+		
 }

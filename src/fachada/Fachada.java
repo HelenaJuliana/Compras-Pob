@@ -3,8 +3,6 @@ package fachada;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -260,8 +258,15 @@ public static String consultarTotalItens() {
 				}
 				return texto;
 			}
-			
-	
+//LISTAR TODOS AS VENDAS
+			public static String listarVendas(String n) { 	
+				List<Venda> vendas = daovenda.readAll();
+				String texto="-----------\nlistagem das Vendas---------\n";
+				for(Venda t: vendas) {
+					texto += "\n" + t; 
+				}
+				return texto;
+			}
 
 		
 //EXCLUINDO CLIENTE
@@ -390,11 +395,12 @@ public static void AtualizarProduto(
 	
 }
 
-//obs ainda não funciona,só tá voltando o nome do funcionário e do cliente e seu email
-public static String consultarVendas(String n) {
+public static String consultarVendas(String n,String cpf,String nome) {
 	List<Produto> result = daoproduto.consultarVendas(n);
-
-	String texto = "\nCONSULTAR VENDAS COM "+n+" PRODUTOS:";
+	List<Funcionario> result2 = daofuncionario.consultarVendas(cpf);
+	List<Cliente> result3 = daocliente.consultarVendas(nome);
+	
+	String texto = "\nCONSULTAR VENDAS COM "+n+ "\nFuncionario "+cpf +"\nCliente " +nome+ " PRODUTOS:";
 	if (result.isEmpty())  
 		texto += "consulta vazia";
 	else 
@@ -402,49 +408,50 @@ public static String consultarVendas(String n) {
 	return texto;
 }
 
-public static Venda CadastrarVenda(
-		
-		 String codV,
-		Funcionario cpf,
-		 Cliente nome,
-		Date data,
-		 double valor) 
-		throws  Exception{
-	DAO.begin();	
+
+
+
+
+// CADASTRANDO venda
+public static Venda CadastrarVendas( 
+		String codV,
+		String cpf,
+		String nome, 
+		String data, 
+		double valor) throws  Exception{
+	DAO.begin();
 	Venda v = daovenda.read(codV);
+	Funcionario fun = daofuncionario.read(cpf);
+	Cliente cl = daocliente.read(nome);
+
 	
-	if(v == null) {
+	if(v != null) {
 		DAO.rollback();
-		throw new Exception("cadastrar venda - venda ja cadastrado: " + cpf + nome);
+		throw new Exception("cadastrar venda - pessoa com código já cadastrado:" + codV);
 	}
-	//Formatando string para data
-			DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			LocalDate Date = LocalDate.parse((CharSequence) data, format);
 	
-	v = new Venda( 
+	//Formatando string para data
+	DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	LocalDate LocalDate = java.time.LocalDate.parse(data, format);
+	
+	
+	
+	v = new Venda (
 			codV,
 			cpf,
-			 nome,
-			 data,
-			 valor);
+			nome,
+			LocalDate,
+			valor);
 	daovenda.create(v);	
 	DAO.commit();
 	return v;
 }
-
 	
+
 
 
 }
 
-
-	
-	
-
-
-		
-		
-	
 
 	
 	
