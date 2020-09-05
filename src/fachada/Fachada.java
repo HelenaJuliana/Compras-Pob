@@ -434,8 +434,6 @@ public static Venda CadastrarVendas(
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDate LocalDate = java.time.LocalDate.parse(data, format);
 	
-	
-	
 	v = new Venda (
 			codV,
 			cpf,

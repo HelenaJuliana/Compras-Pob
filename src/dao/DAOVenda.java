@@ -26,18 +26,18 @@ public class DAOVenda  extends DAO<Venda>{
 		else
 			return null;
 	}
-//	
-//	public List<Venda> consultarVendas(String n){
-//		Query q = manager.query();
-//		q.constrain(Venda.class);
-//		q.descend("cpf").descend("cpf").descend("cpf").constrain(n).like();
-//		List<Venda> resultados = q.execute();
-//		if(resultados.size()==0)
-//			return null;
-//		else
-//			return resultados;
-//
-//	}
+	
+	public List<Venda> consultarVendas(String codV){
+		Query q = manager.query();
+		q.constrain(Venda.class);
+		q.descend("codV").descend("cpf").descend("nome").constrain("1234").like();
+		List<Venda> resultados = q.execute();
+		if(resultados.size()==0)
+			return null;
+		else
+			return resultados;
+
+	}
 	
 
 

@@ -13,26 +13,24 @@ public class Venda {
 	private Cliente nome;
 	private LocalDate data;
 	private double valor2;
-	private ArrayList<Item> produtos= new ArrayList<Item>();
+	private ArrayList<Produto> produtos= new ArrayList<Produto>();
 	
-	
-
-	public Venda(
-			String codV,
-			Funcionario cpf,
-			Cliente nome,
-			LocalDate data,
-			double valor2
-			) {
-		super();
-		this.codV = codV;
-		this.cpf = cpf;
-		this.nome = nome;
-		this.data = data;
-		this.valor2 = valor2;
-		 
-		
-	}
+//	public Venda(
+//			String codV,
+//			Funcionario cpf,
+//			Cliente nome,
+//			LocalDate data,
+//			double valor2
+//			) {
+//		super();
+//		this.codV = codV;
+//		this.cpf = cpf;
+//		this.nome = nome;
+//		this.data = data;
+//		this.valor2 = valor2;
+//		 
+//		
+//	}
 
 	public Venda(
 			String codV2,
@@ -91,7 +89,6 @@ public class Venda {
 		this.valor2 = valor;
 	}
 	
-	
 
 	@Override
 	public String toString() {
@@ -100,12 +97,12 @@ public class Venda {
 				" Cod = " + String.format("%5s",codV)+
 				" Funcionario = " + String.format("%5s",cpf)+
 				", Cliente = " + String.format("%5s",nome)        +
-				", data = " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+
+				", Data = " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+
 				", Preço = " + String.format("%5s",valor2);
 		
 
 		texto += ", produtos:";
-		for(Item p : produtos)
+		for(Produto p : produtos)
 			texto+= p.getCod() + ", ";
 
 		return texto;

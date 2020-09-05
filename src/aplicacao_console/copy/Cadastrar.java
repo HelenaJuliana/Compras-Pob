@@ -28,7 +28,7 @@ public class Cadastrar {
 			//System.out.println(cl);
 			
 			//dando erro
-		v = Fachada.CadastrarVendas("20","17115","Ana","04/09/2020",20.00);
+		v = Fachada.CadastrarVendas("1234","17115","Ana","16/08/2020",20.0);
 		System.out.println(v);
 //			
 			
