@@ -11,8 +11,8 @@ public class Listar {
 			System.out.println(Fachada.listarCliente());
 			System.out.println(Fachada.listarFuncionario());
 			System.out.print(Fachada.listarProdutos());
-			//System.out.print(Fachada.listarVendas("01"));
-
+			System.out.print(Fachada.listarVendas());
+ 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

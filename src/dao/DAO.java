@@ -19,6 +19,7 @@ import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Item;
 import modelo.Produto;
+import modelo.Venda;
 
 public abstract class DAO<T> implements DAOInterface<T> {
 	protected static ObjectContainer manager;
@@ -45,6 +46,7 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		config.common().objectClass(Item.class).cascadeOnUpdate(true);
 //		config.common().objectClass(Telefone.class).cascadeOnDelete(true);
 		config.common().objectClass(Item.class).cascadeOnActivate(true);
+	
 
 		// indices
 		config.common().objectClass(modelo.Cliente.class).objectField("nome").indexed(true);

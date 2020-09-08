@@ -12,7 +12,7 @@ public class Consultar {
 		try {
 			System.out.println(Fachada.consultarClientePorParteNome("he") );
 			System.out.print(Fachada.consultartotalDeClientes());
-//			System.out.println(Fachada.consultarClientesNPedidos(5) );
+	
      		System.out.println(Fachada.consultarProdutoPorParteNome("Ja"));
      		System.out.println(Fachada.consultarItem("Cal"));
 
