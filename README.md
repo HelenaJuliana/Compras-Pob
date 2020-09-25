@@ -16,3 +16,6 @@ dados orientado a objetos (Db4o).
 
 OBS:. Projeto em fase de construção 🚧🚨🔥
 
+UML Simples
+
+![uml_simples](https://user-images.githubusercontent.com/17792887/94282188-e8a19d80-ff25-11ea-9eb9-c7360a893d79.png)
