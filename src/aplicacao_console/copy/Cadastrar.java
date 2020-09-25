@@ -18,24 +18,24 @@ public class Cadastrar {
 
 			System.out.println("cadastrando...");
 
-			//cl= Fachada.cadastrarCliente(" Barto", "4101001", "ruaendereco", "pl@gmail",
-			// "12312231");
+			cl= Fachada.cadastrarCliente(" Claudio", "410102", "ruaendereco", "pl@gmail",
+			 "12312231");
 
-			// System.out.println(cl);
+			 System.out.println(cl);
 
-			
-			v = Fachada.CadastrarVendas("123450", "17115", "Ana Clara", "funcio@", 
-					"Andre", "8989", "Rua perdida", "9999",
-					"cliente@", "16/08/2020", 20.0);
-			System.out.println(v);
-			
+//			
+//			v = Fachada.CadastrarVendas("123450", "17115", "Ana Clara", "funcio@", 
+//					"Andre", "8989", "Rua perdida", "9999",
+//					"cliente@", "16/08/2020", 20.0);
+//			System.out.println(v);
+//			
 
 //			pro= Fachada.cadastrarProdutos("202", "Vestido 2 ",20.00, 11, "Preto e branco  etc");
 //			System.out.println(pro);
-//			
-			// fun= Fachada.cadastrarFuncionario("171145","Maria 2",
-			// "mariavendas@gmail.com");
-			// System.out.println(fun);
+			
+			fun= Fachada.cadastrarFuncionario("17101145","Maria 4",
+			 "mariavendas@gmail.com");
+			 System.out.println(fun);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

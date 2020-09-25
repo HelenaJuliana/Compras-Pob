@@ -46,11 +46,14 @@ public abstract class DAO<T> implements DAOInterface<T> {
 		config.common().objectClass(Item.class).cascadeOnUpdate(true);
 //		config.common().objectClass(Telefone.class).cascadeOnDelete(true);
 		config.common().objectClass(Item.class).cascadeOnActivate(true);
+		config.common().objectClass(Venda.class).cascadeOnActivate(true);
 	
 
 		// indices
 		config.common().objectClass(modelo.Cliente.class).objectField("nome").indexed(true);
 		config.common().objectClass(Item.class).objectField("itens").indexed(true);
+		config.common().objectClass(Produto.class).objectField("Produtos").indexed(true);
+		config.common().objectClass(Venda.class).objectField("Vendas").indexed(true);
 
 		manager = Db4oEmbedded.openFile(config, "banco.db4o");
 	}

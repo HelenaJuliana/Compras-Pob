@@ -99,16 +99,23 @@ public class Venda {
 
 	@Override
 	public String toString() {
-		String classe = getClass().getSimpleName() + ":";
-		String texto = String.format("%5s", classe) + " Cod = " + String.format("%5s", codV) + " Funcionario = "
-				+ String.format("%5s", cpf.getCpf()) + ", Cliente = " + String.format("%5s", nome.getNome()) + ", Data = "
-				+ data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ", Pre�o = " + String.format("%5s", valor2);
-
-		texto += ", produtos:";
-		for (Produto p : produtos)
-			texto += p.getCod() + ", ";
-
-		return texto;
+		return "Venda [codV=" + codV + ", Funcionários=" + cpf + ", "
+				+ "Clientes=" + nome + ", data=" + data + ", valor= " + valor2
+				+ ", produtos=" + produtos + "]";
 	}
+
+//	@Override
+//	public String toString() {
+//		String classe = getClass().getSimpleName() + ":";
+//		String texto = String.format("%5s", classe) + " Cod = " + String.format("%5s", codV) + " Funcionario = "
+//				+ String.format("%5s", cpf.getCpf()) + ", Cliente = " + String.format("%5s", nome.getNome()) + ", Data = "
+//				+ data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ", Pre�o = " + String.format("%5s", valor2);
+//
+//		texto += ", produtos:";
+//		for (Produto p : produtos)
+//			texto += p.getCod() + ", ";
+//
+//		return texto;
+//	}
 
 }

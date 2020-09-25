@@ -70,7 +70,10 @@ public class Fachada {
 		return pro;
 	}
 
-	public static Funcionario cadastrarFuncionario(String cpf, String nome, String email) throws Exception {
+	public static Funcionario cadastrarFuncionario(
+			String cpf, 
+			String nome, 
+			String email) throws Exception {
 		DAO.begin();
 		Funcionario fun = daofuncionario.read(cpf);
 		if (fun != null) {
@@ -83,6 +86,65 @@ public class Fachada {
 		DAO.commit();
 		return fun;
 	}
+	
+
+	// CADASTRANDO VENDAS
+		public static Venda CadastrarVendas(
+				String codV, 
+				String cpfFuncionario, 
+				String nomeFuncionario,
+				String emailFuncionario, 
+				String nomeCliente, 
+				String cpfCliente, 
+				String enderecoCliente,
+				String telefoneCliente, 
+				String emailCliente, 
+				String data, 
+				double valor) throws Exception {
+
+			DAO.begin();
+			Funcionario funcionario = new Funcionario(
+					cpfFuncionario, 
+					nomeFuncionario, 
+					emailFuncionario);
+
+			Cliente cliente = new Cliente(
+					nomeCliente, 
+					cpfCliente, 
+					enderecoCliente, 
+					telefoneCliente, 
+					emailCliente);
+
+			Venda v = daovenda.read(codV);
+			Funcionario fun = daofuncionario.read(cpfFuncionario);
+			
+			if (fun == null) {
+				System.out.print(" Funcionario inexistente \n");
+				}
+			
+			
+			///Cliente cl = daocliente.read(cpfCliente);
+
+			if (v != null) {
+				DAO.rollback();
+				throw new Exception("\n cadastrar venda - pessoa com codigo ja cadastrado:" + codV);
+			}
+
+			// Formatando string para data
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate LocalDate = java.time.LocalDate.parse(data, format);
+
+			v = new Venda(
+					codV, 
+					funcionario, 
+					cliente, 
+					LocalDate, 
+					valor);
+			daovenda.create(v);
+			DAO.commit();
+			return v;
+		}
+
 
 	/********************
 	 * CONSULTAS
@@ -227,12 +289,15 @@ public class Fachada {
 //LISTAR TODOS AS VENDAS
 	public static String listarVendas() {
 		List<Venda> vendas = daovenda.readAll();
+		List<Funcionario> fun = daofuncionario.readAll();
+		
 		String texto = "-----------\nlistagem das Vendas---------\n";
 		for (Venda t : vendas) {
 			texto += "\n" + t;
 		}
 		return texto;
 	}
+	
 
 //EXCLUINDO CLIENTE
 	public static void excluirCliente(String cpf) throws Exception {
@@ -360,63 +425,6 @@ public class Fachada {
 			for (Produto t : result)
 				texto += "\n" + t;
 		return texto;
-	}
-
-// CADASTRANDO VENDAS
-	public static Venda CadastrarVendas(
-			String codV, 
-			String cpfFuncionario, 
-			String nomeFuncionario,
-			String emailFuncionario, 
-			String nomeCliente, 
-			String cpfCliente, 
-			String enderecoCliente,
-			String telefoneCliente, 
-			String emailCliente, 
-			String data, 
-			double valor) throws Exception {
-
-		DAO.begin();
-		Funcionario funcionario = new Funcionario(
-				cpfFuncionario, 
-				nomeFuncionario, 
-				emailFuncionario);
-
-		Cliente cliente = new Cliente(
-				nomeCliente, 
-				cpfCliente, 
-				enderecoCliente, 
-				telefoneCliente, 
-				emailCliente);
-
-		Venda v = daovenda.read(codV);
-		Funcionario fun = daofuncionario.read(cpfFuncionario);
-		
-		if (fun == null) {
-			System.out.print(" Funcionario inexistente \n");
-			}
-		
-		
-		///Cliente cl = daocliente.read(cpfCliente);
-
-		if (v != null) {
-			DAO.rollback();
-			throw new Exception("cadastrar venda - pessoa com codigo ja cadastrado:" + codV);
-		}
-
-		// Formatando string para data
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate LocalDate = java.time.LocalDate.parse(data, format);
-
-		v = new Venda(
-				codV, 
-				funcionario, 
-				cliente, 
-				LocalDate, 
-				valor);
-		daovenda.create(v);
-		DAO.commit();
-		return v;
 	}
 
 }
